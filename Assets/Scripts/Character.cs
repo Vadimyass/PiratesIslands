@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
         if (TimeToGo)
         {
             transform.TransformDirection(Vector3.forward);
-            transform.localPosition += Vector3.forward* Time.deltaTime;
+            transform.localPosition += Vector3.left * Time.deltaTime * 0.5f;
         }
     }
     private void OnCollisionStay(Collision collision)
