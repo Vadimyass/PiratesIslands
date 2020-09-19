@@ -24,7 +24,8 @@ public class Island : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && _instantiatedLog == null)
         {
-            _instantiatedLog = Instantiate(_logPrefab, _logPrefab.transform.position, Quaternion.identity);
+            _instantiatedLog = Instantiate(_logPrefab,Vector3.zero, Quaternion.Euler(transform.rotation.eulerAngles),this.transform);
+            _instantiatedLog.transform.localPosition = _logPrefab.transform.position;
             _rigidbody = _instantiatedLog.GetComponent<Rigidbody>();
             _rigidbody.isKinematic = true;
             print(_instantiatedLog.name);
@@ -38,9 +39,10 @@ public class Island : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _rigidbody.isKinematic = false;
-            _rigidbody.AddForce(new Vector3(-20, 0, 0));
+            _rigidbody.AddForce((NextIsland.transform.position - transform.position)*30);//Forcing to the next island
+            print(NextIsland.transform.position - transform.position);
             LogDown(NextIsland);
-            this.enabled = false;
+            enabled = false;
         }
     }
 }
