@@ -6,16 +6,20 @@ public class Character : MonoBehaviour
 {
     public bool TimeToGo;
     private GameObject _nextIsland;
+    private Vector3 _nextIslandTarget;
+
+    private Animator _animator;
     private void Start()
     {
+        _animator = GetComponent<Animator>();
+
         TimeToGo = false;
         Island.LogDown += WalkToNextIsland;
     }
 
     public void WalkToNextIsland(GameObject nextIsland)
     {
-        transform.LookAt(nextIsland.transform.position);
-        _nextIsland = nextIsland;
+        _nextIslandTarget = new Vector3(_nextIsland.transform.position.x, 0.5065f, _nextIsland.transform.position.z);
         print(_nextIsland.name);
         TimeToGo = true;
     }
@@ -23,18 +27,22 @@ public class Character : MonoBehaviour
     {
         if (TimeToGo)
         {
-            transform.TransformDirection(Vector3.forward);
-            transform.localPosition += Vector3.left * Time.deltaTime * 0.5f;
+            transform.position = Vector3.MoveTowards(transform.position, _nextIslandTarget,0.01f);
         }
+        if(transform.position == _nextIslandTarget && TimeToGo == true)
+        {
+            TimeToGo = false;
+            transform.LookAt(_nextIsland.transform.position);
+            print("dada");
+        }
+
+        _animator.SetBool("IsWalking", TimeToGo);
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.TryGetComponent(out TriggerScore triggerScore))
-        {
-            TimeToGo = false;
-        }
         if(collision.collider.TryGetComponent(out Island island))
         {
+            _nextIsland = island.NextIsland;
             island.enabled = true;
         }
     }
