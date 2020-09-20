@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
         print(_nextIsland.name);
         TimeToGo = true;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (TimeToGo)
         {

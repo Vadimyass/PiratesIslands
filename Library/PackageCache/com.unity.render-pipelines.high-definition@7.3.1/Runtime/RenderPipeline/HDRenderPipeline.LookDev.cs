@@ -13,6 +13,7 @@ namespace UnityEngine.Rendering.HighDefinition
             public HDRISky sky;
             public Volume volume;
         }
+        void IDataProvider.Cleanup(StageRuntimeInterface SRI) { }
 
         /// <summary>
         /// This hook allows HDRP to init the scene when creating the view
@@ -135,11 +136,6 @@ namespace UnityEngine.Rendering.HighDefinition
             LookDevDataForHDRP data = (LookDevDataForHDRP)SRI.SRPData;
             data.volume.enabled = false;
         }
-
-        void IDataProvider.Cleanup(StageRuntimeInterface stageRuntimeInterface)
-        {
-        }
-
 
         /// <summary>
         /// This hook allows HDRP to give to LookDev what debug mode it can support.

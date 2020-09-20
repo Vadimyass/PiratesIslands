@@ -20,7 +20,7 @@ public class Island : MonoBehaviour
     {
         _logPrefab = Resources.Load<GameObject>("Prefabs/Log");
     }
-    void Update()
+    void FixedUpdate()
     {
         if(Input.GetMouseButtonDown(0) && _instantiatedLog == null)
         {
