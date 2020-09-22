@@ -1,8 +1,2 @@
 Base path: 'C:/Unity/2019.4.1f1/Editor/Data', plugins path 'C:/Unity/2019.4.1f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
-Cmd: compileSnippet
-  error: 1 plat 4 at (190): pow(f, e) will not work for negative f, use abs(f) or conditionally handle negative values if you expect them\nCompiling Fragment program with INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX
-Platform defines: UNITY_NO_DXT5nm UNITY_ENABLE_REFLECTION_BUFFERS UNITY_NO_CUBEMAP_ARRAY UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 SHADER_API_DESKTOP UNITY_LIGHTMAP_FULL_HDR
-  error: 1 plat 4 at (445): implicit truncation of vector type\nCompiling Fragment program with INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX
-Platform defines: UNITY_NO_DXT5nm UNITY_ENABLE_REFLECTION_BUFFERS UNITY_NO_CUBEMAP_ARRAY UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 SHADER_API_DESKTOP UNITY_LIGHTMAP_FULL_HDR
-  api=4 type=1 insize=20722 outsize=3326 kw=INSTANCING_ON _ADDITIONAL_LIGHTS_VERTEX pd=UNITY_NO_DXT5nm UNITY_ENABLE_REFLECTION_BUFFERS UNITY_NO_CUBEMAP_ARRAY UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF2 SHADER_API_DESKTOP UNITY_LIGHTMAP_FULL_HDR ok=1

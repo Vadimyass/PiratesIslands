@@ -13,13 +13,15 @@ namespace UnityEngine.Rendering.HighDefinition
             public HDRISky sky;
             public Volume volume;
         }
-        void IDataProvider.Cleanup(StageRuntimeInterface SRI) { }
 
-        /// <summary>
-        /// This hook allows HDRP to init the scene when creating the view
-        /// </summary>
-        /// <param name="SRI">The StageRuntimeInterface allowing to communicate with the LookDev</param>
-        void IDataProvider.FirstInitScene(StageRuntimeInterface SRI)
+        void IDataProvider.Cleanup(StageRuntimeInterface SRI)
+        { }
+
+            /// <summary>
+            /// This hook allows HDRP to init the scene when creating the view
+            /// </summary>
+            /// <param name="SRI">The StageRuntimeInterface allowing to communicate with the LookDev</param>
+            void IDataProvider.FirstInitScene(StageRuntimeInterface SRI)
         {
             Camera camera = SRI.camera;
             camera.allowHDR = true;
