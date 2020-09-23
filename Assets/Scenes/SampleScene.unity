@@ -256,7 +256,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195803867}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57474c2983851a4b9b1d64def79b840, type: 3}
   m_Name: 
@@ -329,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195803867}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.074, y: 0, z: -1.344}
+  m_LocalPosition: {x: -3.074, y: -0.58, z: -1.344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2043756558}
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460496135}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57474c2983851a4b9b1d64def79b840, type: 3}
   m_Name: 
@@ -748,7 +748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460496135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.654, y: 0, z: -1.344}
+  m_LocalPosition: {x: -1.654, y: -0.58, z: -1.344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 66747680}
@@ -915,8 +915,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656507517}
-  m_LocalRotation: {x: -0.23028262, y: 0.6694786, z: -0.23073786, w: -0.66747916}
-  m_LocalPosition: {x: 0.91, y: 1.2465, z: 0.0000074751747}
+  m_LocalRotation: {x: -0.22725901, y: 0.6701271, z: -0.22740716, w: -0.669006}
+  m_LocalPosition: {x: 0.91000015, y: 1.2465, z: 0.00000010848046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1157721114}
@@ -1196,6 +1196,7 @@ GameObject:
   - component: {fileID: 851877135}
   - component: {fileID: 851877134}
   - component: {fileID: 851877138}
+  - component: {fileID: 851877139}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1271,7 +1272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851877133}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.654, y: 0, z: 0.03}
+  m_LocalPosition: {x: -1.654, y: 0.297, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1418832785}
@@ -1285,11 +1286,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851877133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57474c2983851a4b9b1d64def79b840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &851877139
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851877133}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b2b9892f8501eb4f9adf80d74f56f0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1364,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 120
+  field of view: 40
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -1369,8 +1389,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.23028262, y: 0.6694786, z: -0.23073786, w: -0.66747916}
-  m_LocalPosition: {x: 0.91, y: 1.2465, z: 0.0000074751747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1565,7 +1585,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145990290}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57474c2983851a4b9b1d64def79b840, type: 3}
   m_Name: 
@@ -1638,7 +1658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145990290}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.764, y: 0, z: -3.082}
+  m_LocalPosition: {x: -4.764, y: -0.58, z: -3.082}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 613535080}
@@ -1690,13 +1710,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 5
+  m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0.74, z: -0.91}
   m_XDamping: 1
   m_YDamping: 1.1
   m_ZDamping: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 3.7
   m_RollDamping: 0
 --- !u!114 &1157721116
 MonoBehaviour:
@@ -1715,10 +1735,10 @@ MonoBehaviour:
   m_LookaheadSmoothing: 10
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
-  m_ScreenX: 0.5019677
+  m_ScreenX: 0.5010418
   m_ScreenY: 0.5084906
-  m_DeadZoneWidth: 0.369
-  m_DeadZoneHeight: 0.44
+  m_DeadZoneWidth: 0.094
+  m_DeadZoneHeight: 0.124
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
@@ -2057,7 +2077,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964455485}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f57474c2983851a4b9b1d64def79b840, type: 3}
   m_Name: 
@@ -2130,7 +2150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964455485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.039, y: 0, z: -3.107}
+  m_LocalPosition: {x: -3.039, y: -0.58, z: -3.107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 237877517}
@@ -2394,7 +2414,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6771115882823374989

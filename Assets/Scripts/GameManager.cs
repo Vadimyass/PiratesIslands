@@ -22,5 +22,7 @@ public class GameManager : MonoBehaviour
     {
         island.GetComponent<Island>().enabled = true;
     }
+
+
 }
 

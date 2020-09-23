@@ -20,6 +20,19 @@ public class Island : MonoBehaviour
     {
         _logPrefab = Resources.Load<GameObject>("Prefabs/Log");
     }
+    private void OnEnable()
+    {
+        try
+        {
+            InvokeRepeating(nameof(AnimationOfIsland),1,0.01f);
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+
+    }
     void FixedUpdate()
     {
         if(Input.GetMouseButtonDown(0) && _instantiatedLog == null)
@@ -28,7 +41,6 @@ public class Island : MonoBehaviour
             _instantiatedLog.transform.localPosition = _logPrefab.transform.position;
             _rigidbody = _instantiatedLog.GetComponent<Rigidbody>();
             _rigidbody.isKinematic = true;
-            print(_instantiatedLog.name);
         }
 
         if (Input.GetMouseButton(0))
@@ -40,9 +52,15 @@ public class Island : MonoBehaviour
         {
             _rigidbody.isKinematic = false;
             _rigidbody.AddForce((NextIsland.transform.position - transform.position)*30);//Forcing to the next island
-            print(NextIsland.transform.position - transform.position);
             LogDown(NextIsland);
-            enabled = false;
+        }
+    }
+    private void AnimationOfIsland()
+    {
+        NextIsland.transform.position = Vector3.MoveTowards(NextIsland.transform.position, new Vector3(NextIsland.transform.position.x, 0, NextIsland.transform.position.z), 0.007f);
+        if(NextIsland.transform.position.y == 0)
+        {
+            CancelInvoke();
         }
     }
 }
