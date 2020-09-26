@@ -15,12 +15,6 @@ public class GameManager : MonoBehaviour
             Islands[i].GetComponent<Island>().NextIsland = Islands[i + 1];
             Islands[i+1].GetComponent<Island>().enabled = false;
         }
-        Island.LogDown += DisactivateIsland;
-    }
-
-    private void DisactivateIsland(GameObject island)
-    {
-        island.GetComponent<Island>().enabled = true;
     }
 
 

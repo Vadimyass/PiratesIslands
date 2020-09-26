@@ -12,7 +12,7 @@ public class Island : MonoBehaviour
 
     private GameObject _instantiatedLog;
 
-    public static Action<GameObject> LogDown = delegate { };
+    public static Action<Vector3> LogDown = delegate { };
 
     private float _speed = 0.3f;
 
@@ -52,7 +52,7 @@ public class Island : MonoBehaviour
         {
             _rigidbody.isKinematic = false;
             _rigidbody.AddForce((NextIsland.transform.position - transform.position)*30);//Forcing to the next island
-            LogDown(NextIsland);
+            LogDown(new Vector3(NextIsland.transform.position.x, 0.5065f, NextIsland.transform.position.z));
         }
     }
     private void AnimationOfIsland()

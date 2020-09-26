@@ -4,45 +4,23 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public bool TimeToGo;
-    private GameObject _nextIsland;
-    private Vector3 _nextIslandTarget;
+    private Vector3 _nextIsland;
+    private Vector3 _recentIsland;
 
     private Animator _animator;
+    public bool EbalVRot;
     private void Start()
     {
         _animator = GetComponent<Animator>();
-
-        TimeToGo = false;
-        Island.LogDown += WalkToNextIsland;
+        EbalVRot = false;
     }
 
-    public void WalkToNextIsland(GameObject nextIsland)
-    {
-        _nextIslandTarget = new Vector3(_nextIsland.transform.position.x, 0.5065f, _nextIsland.transform.position.z);
-        print(_nextIsland.name);
-        TimeToGo = true;
-    }
-    private void FixedUpdate()
-    {
-        if (TimeToGo)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, _nextIslandTarget,0.01f);
-        }
-        if(transform.position == _nextIslandTarget && TimeToGo == true)
-        {
-            TimeToGo = false;
-            transform.LookAt(_nextIsland.transform.position);
-            print("dada");
-        }
-
-        _animator.SetBool("IsWalking", TimeToGo);
-    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.TryGetComponent(out Island island))
         {
-            _nextIsland = island.NextIsland;
+            _recentIsland = new Vector3(island.transform.position.x, 0.5065f, island.transform.position.z);
+            _nextIsland = island.NextIsland.transform.position;
             island.enabled = true;
         }
     }
@@ -52,5 +30,40 @@ public class Character : MonoBehaviour
         {
             island.enabled = false;
         }
+    }
+    public IEnumerator MoveToPosition(Vector3 positionToMove)
+    {
+        while(transform.position != positionToMove)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.01f);
+            yield return null;
+        }
+        transform.LookAt(new Vector3(_nextIsland.x,transform.position.y, _nextIsland.z));
+        if(EbalVRot == true)
+        {
+            PlayerManager.instance.OtherCharacterWalking();
+            yield break;
+        }
+    }
+
+    public IEnumerator MoveToCenterRecentIsland(Vector3 pos)
+    {
+        while (transform.position != _recentIsland)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.01f);
+            yield return null;
+        }
+        yield return StartCoroutine(MoveToCenterNextIsland(pos));
+    }
+
+
+    public IEnumerator MoveToCenterNextIsland(Vector3 pos)
+    {
+        if (transform.position != _nextIsland)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, _nextIsland, 0.01f);
+            yield return null;
+        }
+        yield return StartCoroutine(MoveToPosition(pos));
     }
 }
