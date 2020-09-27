@@ -6,14 +6,23 @@ using UnityEngine;
 
 public class TriggerScore : MonoBehaviour
 {
-    public bool IsBusy;
+    private bool IsBusy = false;
 
-
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.collider.TryGetComponent<Character>(out Character character))
+        if (other.TryGetComponent(out AdditionalScore additionalScore) && !IsBusy)
         {
+            GameManager.instance.AddScore(30);
+            GameManager.instance.FillProgressBar();
+            IsBusy = true;
         }
+
+        else if (other.TryGetComponent(out Island island) && !IsBusy)
+        {
+            GameManager.instance.FillProgressBar();
+            GameManager.instance.AddScore(10);
+            IsBusy = true;
+        }
+
     }
 }

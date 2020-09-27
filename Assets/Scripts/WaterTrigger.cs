@@ -9,7 +9,10 @@ public class WaterTrigger : MonoBehaviour
     {
         if(collision.collider.TryGetComponent(out Character character))
         {
-            SceneManager.LoadScene(0);
+            PlayerManager.instance.AppointGeneralCharacter();
+            Destroy(character.gameObject);
+            Destroy(Island._instantiatedLog);
+            Island._instantiatedLog = null;
         }
     }
 }

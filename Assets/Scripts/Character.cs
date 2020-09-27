@@ -7,12 +7,15 @@ public class Character : MonoBehaviour
     private Vector3 _nextIsland;
     private Vector3 _recentIsland;
 
-    private Animator _animator;
-    public bool EbalVRot;
+    public Animator _animator;
+    public bool IsGeneral;
+    public GameObject camera;
+    float localTime;
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        EbalVRot = false;
+        IsGeneral = false;
+        localTime = 0;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -28,8 +31,14 @@ public class Character : MonoBehaviour
     {
         if (collision.collider.TryGetComponent(out Island island))
         {
+            Island._instantiatedLog = null;
             island.enabled = false;
         }
+    }
+
+    private void Update()
+    {
+
     }
     public IEnumerator MoveToPosition(Vector3 positionToMove)
     {
@@ -39,21 +48,33 @@ public class Character : MonoBehaviour
             yield return null;
         }
         transform.LookAt(new Vector3(_nextIsland.x,transform.position.y, _nextIsland.z));
-        if(EbalVRot == true)
+        _animator.SetBool("IsWalking", false);
+        if (IsGeneral == true)
         {
             PlayerManager.instance.OtherCharacterWalking();
             yield break;
         }
     }
 
-    public IEnumerator MoveToCenterRecentIsland(Vector3 pos)
+    public IEnumerator MoveToCenterRecentIsland(Vector3 pos, float delay)
     {
         while (transform.position != _recentIsland)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.01f);
-            yield return null;
+            if(localTime >= delay)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.01f);
+                transform.LookAt(_recentIsland);
+                yield return null;
+            }
+            else
+            {
+                localTime += Time.deltaTime;
+                print(localTime);
+                yield return null;
+            }
         }
-        yield return StartCoroutine(MoveToCenterNextIsland(pos));
+        localTime = 0;
+        StartCoroutine(MoveToCenterNextIsland(pos));
     }
 
 
@@ -62,8 +83,9 @@ public class Character : MonoBehaviour
         if (transform.position != _nextIsland)
         {
             transform.position = Vector3.MoveTowards(transform.position, _nextIsland, 0.01f);
+            transform.LookAt(_nextIsland);
             yield return null;
         }
-        yield return StartCoroutine(MoveToPosition(pos));
+        StartCoroutine(MoveToPosition(pos));
     }
 }

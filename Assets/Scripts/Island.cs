@@ -10,7 +10,7 @@ public class Island : MonoBehaviour
 
     private GameObject _logPrefab;
 
-    private GameObject _instantiatedLog;
+    public static GameObject _instantiatedLog;
 
     public static Action<Vector3> LogDown = delegate { };
 
