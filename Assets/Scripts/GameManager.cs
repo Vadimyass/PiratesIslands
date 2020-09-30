@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider ProgressBar;
 
     public static GameManager instance;
+
+    public bool IsGameStarted;
     
     private int _score { get; set; }
 
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
             Islands[i].GetComponent<Island>().NextIsland = Islands[i + 1];
             Islands[i+1].GetComponent<Island>().enabled = false;
         }
+        //Island.LogDown += MoveToNextStep;
     }
 
     public void AddScore(int Score)
@@ -34,6 +37,12 @@ public class GameManager : MonoBehaviour
     public void FillProgressBar()
     {
         ProgressBar.value += (100 / (Islands.Count - 1));
+    }
+
+
+
+    private void OnFailedLogging()
+    {
     }
 }
 

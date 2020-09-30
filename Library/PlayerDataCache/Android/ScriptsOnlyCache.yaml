@@ -1,6 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AdditionalScore
+    - Assets.Scripts.Water.WaterArea
+    - Assets.Scripts.Water.WaterPropertyBlockSetter
     - Character
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineComposer
@@ -9,7 +12,9 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineVirtualCamera
     - GameManager
     - Island
+    - PlayerManager
     - TriggerScore
+    - UIManager
     - WaterTrigger
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -55,11 +60,9 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.PostProcessData
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
+    - UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorResources
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.ShaderGraph.Editor.dll:
-    - UnityEditor.Graphing.GraphObject
-    - UnityEditor.ShaderGraph.Drawing.MaterialGraphEditWindow
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -71,6 +74,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
@@ -81,6 +86,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Mask
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
@@ -125,107 +131,123 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11486}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 11488}
+      Script: {instanceID: 11506}
     - Class: 114
-      Script: {instanceID: 11490}
+      Script: {instanceID: 11508}
     - Class: 114
-      Script: {instanceID: 11492}
+      Script: {instanceID: 11510}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 11496}
+      Script: {instanceID: 11514}
     - Class: 114
-      Script: {instanceID: 11498}
+      Script: {instanceID: 11516}
     - Class: 114
-      Script: {instanceID: 11744}
+      Script: {instanceID: 11766}
     - Class: 114
-      Script: {instanceID: 11918}
+      Script: {instanceID: 11940}
     - Class: 114
-      Script: {instanceID: 11958}
+      Script: {instanceID: 11982}
     - Class: 114
-      Script: {instanceID: 12222}
+      Script: {instanceID: 12246}
     - Class: 114
-      Script: {instanceID: 12304}
+      Script: {instanceID: 12328}
     - Class: 114
-      Script: {instanceID: 12364}
+      Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12418}
+      Script: {instanceID: 12442}
     - Class: 114
-      Script: {instanceID: 12586}
+      Script: {instanceID: 12610}
     - Class: 114
-      Script: {instanceID: 12590}
+      Script: {instanceID: 12614}
     - Class: 114
-      Script: {instanceID: 13072}
+      Script: {instanceID: 13096}
     - Class: 114
-      Script: {instanceID: 13136}
+      Script: {instanceID: 13160}
     - Class: 114
-      Script: {instanceID: 13232}
+      Script: {instanceID: 13256}
     - Class: 114
-      Script: {instanceID: 13606}
+      Script: {instanceID: 13468}
     - Class: 114
-      Script: {instanceID: 13914}
+      Script: {instanceID: 13630}
     - Class: 114
-      Script: {instanceID: 13980}
+      Script: {instanceID: 13872}
     - Class: 114
-      Script: {instanceID: 14072}
+      Script: {instanceID: 13940}
     - Class: 114
-      Script: {instanceID: 14176}
+      Script: {instanceID: 13978}
     - Class: 114
-      Script: {instanceID: 14240}
+      Script: {instanceID: 14008}
     - Class: 114
-      Script: {instanceID: 14440}
+      Script: {instanceID: 14100}
     - Class: 114
-      Script: {instanceID: 14694}
+      Script: {instanceID: 14204}
     - Class: 114
-      Script: {instanceID: 14728}
+      Script: {instanceID: 14270}
     - Class: 114
-      Script: {instanceID: 14782}
+      Script: {instanceID: 14470}
     - Class: 114
-      Script: {instanceID: 14974}
+      Script: {instanceID: 14724}
     - Class: 114
-      Script: {instanceID: 15186}
+      Script: {instanceID: 14758}
     - Class: 114
-      Script: {instanceID: 15292}
+      Script: {instanceID: 14812}
     - Class: 114
-      Script: {instanceID: 15318}
+      Script: {instanceID: 14858}
     - Class: 114
-      Script: {instanceID: 15470}
+      Script: {instanceID: 15006}
     - Class: 114
-      Script: {instanceID: 15528}
+      Script: {instanceID: 15218}
     - Class: 114
-      Script: {instanceID: 15580}
+      Script: {instanceID: 15324}
     - Class: 114
-      Script: {instanceID: 15590}
+      Script: {instanceID: 15350}
     - Class: 114
-      Script: {instanceID: 16064}
+      Script: {instanceID: 15502}
     - Class: 114
-      Script: {instanceID: 16166}
+      Script: {instanceID: 15526}
     - Class: 114
-      Script: {instanceID: 16552}
+      Script: {instanceID: 15562}
     - Class: 114
-      Script: {instanceID: 16804}
+      Script: {instanceID: 15614}
     - Class: 114
-      Script: {instanceID: 16880}
+      Script: {instanceID: 15624}
     - Class: 114
-      Script: {instanceID: 17136}
+      Script: {instanceID: 16098}
+    - Class: 114
+      Script: {instanceID: 16202}
+    - Class: 114
+      Script: {instanceID: 16590}
+    - Class: 114
+      Script: {instanceID: 16844}
+    - Class: 114
+      Script: {instanceID: 16920}
     - Class: 114
       Script: {instanceID: 17176}
     - Class: 114
-      Script: {instanceID: 17202}
+      Script: {instanceID: 17216}
     - Class: 114
-      Script: {instanceID: 17204}
+      Script: {instanceID: 17242}
     - Class: 114
-      Script: {instanceID: 17256}
+      Script: {instanceID: 17244}
     - Class: 114
-      Script: {instanceID: 17294}
+      Script: {instanceID: 17290}
     - Class: 114
-      Script: {instanceID: 17486}
+      Script: {instanceID: 17296}
     - Class: 114
-      Script: {instanceID: 17492}
+      Script: {instanceID: 17334}
     - Class: 114
-      Script: {instanceID: 33454}
+      Script: {instanceID: 17348}
+    - Class: 114
+      Script: {instanceID: 17392}
+    - Class: 114
+      Script: {instanceID: 17528}
+    - Class: 114
+      Script: {instanceID: 17534}
+    - Class: 114
+      Script: {instanceID: 142776}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -315,6 +337,12 @@ ScriptsOnlyBuild:
     className: ExponentialFog
   - hash:
       serializedVersion: 2
+      Hash: eaff205ef6bbce7900de030752683b5c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.MobileOptimizedWater.Scripts
+    className: TouchRotator
+  - hash:
+      serializedVersion: 2
       Hash: 2c4a64a2064bbbaafe6894ab5cc7a04a
     assemblyName: Assembly-CSharp.dll
     namespaceName: Cinemachine
@@ -373,6 +401,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: dc9739099a5cce8e702b74e354f4d583
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.Scripts.Water
+    className: WaterMaterialSwitcher
   - hash:
       serializedVersion: 2
       Hash: 69f9072c31ebf92d3aa2496d67c4e1c8
@@ -439,6 +473,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.HighDefinition.Runtime.dll
     namespaceName: UnityEngine.Rendering.HighDefinition
     className: DepthOfField
+  - hash:
+      serializedVersion: 2
+      Hash: ab9fadd6ba00d6d03c17baa523132ffb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.MobileOptimizedWater.Scripts
+    className: AnimationStarter
   - hash:
       serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
@@ -567,7 +607,7 @@ ScriptsOnlyBuild:
     className: ChromaticAberration
   - hash:
       serializedVersion: 2
-      Hash: 65ebed3f04c5c703a93385e7c2ac8c54
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TriggerScore
@@ -579,7 +619,7 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: fc81a5ec93387210d0931af0adc65811
+      Hash: 4ee82787423415292de68f31af59d134
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -633,7 +673,7 @@ ScriptsOnlyBuild:
     className: SplitToning
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: c23a4803f93f34c78c65137cc0d3abc6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Island
@@ -915,6 +955,12 @@ ScriptsOnlyBuild:
     className: ChromaticAberration
   - hash:
       serializedVersion: 2
+      Hash: 1b722263b33e91fa785a6555c98feca8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.Scripts.Water
+    className: WaterArea
+  - hash:
+      serializedVersion: 2
       Hash: 5173ce219c7caafd72d93f056351b0cc
     assemblyName: Unity.RenderPipelines.HighDefinition.Runtime.dll
     namespaceName: UnityEngine.Rendering.HighDefinition
@@ -925,6 +971,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerIndirectToggle
+  - hash:
+      serializedVersion: 2
+      Hash: 69213c4475a578b118c88e26d81ccc75
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerManager
   - hash:
       serializedVersion: 2
       Hash: 51b05e403ce1da1805851f42af02f4bb
@@ -1173,6 +1225,12 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
+      Hash: bf2bd98917f7148e5b99e4ff2bbab767
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.Scripts.Water
+    className: WaterPropertyBlockSetter
+  - hash:
+      serializedVersion: 2
       Hash: 6f30920998edad31ea49edb6efc5f036
     assemblyName: Unity.RenderPipelines.HighDefinition.Runtime.dll
     namespaceName: UnityEngine.Rendering.HighDefinition
@@ -1353,6 +1411,12 @@ ScriptsOnlyBuild:
     className: VolumeComponent
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WaterTrigger
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1461,6 +1525,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerVector2
   - hash:
       serializedVersion: 2
+      Hash: afc5b93a7b192de2dcb3832fe35a5c7e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.MobileOptimizedWater.Scripts
+    className: CameraRotator
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: 
@@ -1545,6 +1615,12 @@ ScriptsOnlyBuild:
     className: VFXInputAxisBinder
   - hash:
       serializedVersion: 2
+      Hash: ac93773f9bac168f34bcc2769c36a118
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.MobileOptimizedWater.Scripts
+    className: FPSUI
+  - hash:
+      serializedVersion: 2
       Hash: f4c02471dcd9f0ddb8c322a1a0beade6
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
@@ -1585,6 +1661,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXHierarchyAttributeMapBinder
+  - hash:
+      serializedVersion: 2
+      Hash: 01ba255072c4172db07f44204587b084
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Assets.MobileOptimizedWater.Scripts
+    className: CameraDepthSlider
   - hash:
       serializedVersion: 2
       Hash: da14535bb05f94583c7536a845dfa9f6
@@ -1707,7 +1789,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
-      Hash: b0c37de533de507dfed2ad4025960957
+      Hash: 1f0071439f74b8f2c7b1c0030f49d8eb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Character
@@ -1827,6 +1909,12 @@ ScriptsOnlyBuild:
     className: VFXPropertyBinder
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AdditionalScore
+  - hash:
+      serializedVersion: 2
       Hash: 1615d3bb1db164c1672020cea49440ce
     assemblyName: Assembly-CSharp.dll
     namespaceName: Cinemachine
@@ -1911,10 +1999,10 @@ ScriptsOnlyBuild:
     className: VFXUISliderBinder
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 2ecf763b0fc9b5df0ff698df9f5c560f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: WaterTrigger
+    className: UIManager
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

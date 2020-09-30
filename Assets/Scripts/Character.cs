@@ -1,16 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private Vector3 _nextIsland;
-    private Vector3 _recentIsland;
+    [NonSerialized] public Vector3 _nextIsland;
+    [NonSerialized] public Vector3 _recentIsland;
+    [NonSerialized] public Island _recentIslandRef;
 
-    public Animator _animator;
-    public bool IsGeneral;
+    [NonSerialized] public Animator _animator;
+    [NonSerialized] public bool IsGeneral;
     public GameObject camera;
-    float localTime;
+    [NonSerialized] private float localTime;
+
+    [SerializeField] public Transform target;
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -22,29 +26,37 @@ public class Character : MonoBehaviour
     {
         if(collision.collider.TryGetComponent(out Island island))
         {
+            if (!island.enabled)
+            {
+                island.enabled = true;
+            }
             _recentIsland = new Vector3(island.transform.position.x, 0.5065f, island.transform.position.z);
-            _nextIsland = island.NextIsland.transform.position;
-            island.enabled = true;
+            _nextIsland = new Vector3(island.NextIsland.transform.position.x, 0.5065f, island.NextIsland.transform.position.z);
+            _recentIslandRef = island;
         }
+        //else if(collision.collider.TryGetComponent(out WaterTrigger water))
+        //{
+        //    Island._instantiatedLog.SetActive(false);
+        //    PlayerManager.instance.AppointGeneralCharacter();
+        //    Destroy(this.gameObject);
+        //}
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.collider.TryGetComponent(out Island island))
         {
-            Island._instantiatedLog = null;
-            island.enabled = false;
+            if (island.enabled)
+            {
+                island._instantiatedLog = null;
+                island.enabled = false;
+            }
         }
-    }
-
-    private void Update()
-    {
-
     }
     public IEnumerator MoveToPosition(Vector3 positionToMove)
     {
         while(transform.position != positionToMove)
         {
-            transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.01f);
+            transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.012f);
             yield return null;
         }
         transform.LookAt(new Vector3(_nextIsland.x,transform.position.y, _nextIsland.z));
@@ -62,7 +74,7 @@ public class Character : MonoBehaviour
         {
             if(localTime >= delay)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.01f);
+                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.012f);
                 transform.LookAt(_recentIsland);
                 yield return null;
             }
@@ -82,7 +94,8 @@ public class Character : MonoBehaviour
     {
         if (transform.position != _nextIsland)
         {
-            transform.position = Vector3.MoveTowards(transform.position, _nextIsland, 0.01f);
+            _animator.SetBool("IsWalking", true);
+            transform.position = Vector3.MoveTowards(transform.position, _nextIsland, 0.012f);
             transform.LookAt(_nextIsland);
             yield return null;
         }

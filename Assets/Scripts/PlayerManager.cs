@@ -8,9 +8,9 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] public List<Character> _characters = new List<Character>();
     private List<Character> _secondaryCharacters = new List<Character>();
-    private Character _generalCharacter;
+    public Character _generalCharacter;
 
-    private Vector3 nextIslandPos;
+    public Vector3 nextIslandPos;
 
     public static PlayerManager instance;
     int index = 0;
@@ -18,7 +18,6 @@ public class PlayerManager : MonoBehaviour
     {
         instance = this;
         AppointGeneralCharacter();
-        Island.LogDown += WalkToNextIsland;
         foreach (var character in _characters)
         {
             if(character == _generalCharacter)
@@ -48,11 +47,10 @@ public class PlayerManager : MonoBehaviour
         print(_generalCharacter.name);
     }
 
-    private void WalkToNextIsland(Vector3 nextIsland)
+    public void WalkToNextIsland(Vector3 nextIsland)
     {
         _generalCharacter.IsGeneral = true;
         nextIslandPos = nextIsland;
-        _generalCharacter._animator.SetBool("IsWalking", true);
         StartCoroutine(_generalCharacter.MoveToCenterRecentIsland(nextIslandPos,0));
 
     }

@@ -13,7 +13,6 @@ namespace UnityEngine.Rendering.HighDefinition
             public HDRISky sky;
             public Volume volume;
         }
-
         void IDataProvider.Cleanup(StageRuntimeInterface SRI)
         { }
 
