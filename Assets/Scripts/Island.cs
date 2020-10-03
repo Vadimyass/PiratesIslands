@@ -12,6 +12,7 @@ public class Island : MonoBehaviour
 
     public GameObject _instantiatedLog;
 
+    public static Action<Island> LevelOver = delegate { };
     public static Action<GameObject> LogDown = delegate { };
 
     private float _speed = 0.3f;
@@ -22,18 +23,13 @@ public class Island : MonoBehaviour
     }
     private void OnEnable()
     {
-        try
-        {
-            InvokeRepeating(nameof(AnimationOfIsland),1,0.01f);
-        }
-        catch (Exception)
-        {
-
-            throw;
-        }
         if(NextIsland == null)
         {
-            GameManager.instance.IsGameStarted = false; 
+            LevelOver(this);
+        }
+        else
+        {
+            InvokeRepeating(nameof(AnimationOfIsland), 1, 0.01f);
         }
 
     }

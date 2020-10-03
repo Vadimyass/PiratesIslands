@@ -14,35 +14,36 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public bool IsGameStarted;
-    
-    private int _score { get; set; }
+
+    public int MaxScore;
+
+    public int score;
 
     private void Awake()
     {
+        MaxScore = Islands.Count * 15;
+        ProgressBar.maxValue = MaxScore;
+
         instance = this;
 
         for (int i = 0; i < Islands.Count; i++)
         {
             Islands[i].GetComponent<Island>().NextIsland = Islands[i + 1];
-            Islands[i+1].GetComponent<Island>().enabled = false;
+            Islands[i + 1].GetComponent<Island>().enabled = false;
         }
-        //Island.LogDown += MoveToNextStep;
+        Island.LevelOver += GameEnding;
+    }
+
+    private void GameEnding(Island obj)
+    {
+        print("rofl");
+        obj.enabled = false;
     }
 
     public void AddScore(int Score)
     {
-        _score += Score;
-        print(_score);
-    }
-    public void FillProgressBar()
-    {
-        ProgressBar.value += (100 / (Islands.Count - 1));
-    }
-
-
-
-    private void OnFailedLogging()
-    {
+        score += Score;
+        ProgressBar.value += Score;
     }
 }
 

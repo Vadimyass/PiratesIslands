@@ -9,14 +9,13 @@ public class TriggerScore : MonoBehaviour
     private bool IsBusy = false;
     private Vector3 IslandPos;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!IsBusy)
         {
             if (other.TryGetComponent(out AdditionalScore additionalScore))
             {
-                GameManager.instance.AddScore(30);
-                GameManager.instance.FillProgressBar();
+                GameManager.instance.AddScore(15);
                 PlayerManager.instance._generalCharacter.IsGeneral = true;
                 PlayerManager.instance.WalkToNextIsland(PlayerManager.instance._generalCharacter._nextIsland);
                 IsBusy = true;
@@ -25,7 +24,6 @@ public class TriggerScore : MonoBehaviour
 
             else if (other.TryGetComponent(out Island island))
             {
-                GameManager.instance.FillProgressBar();
                 GameManager.instance.AddScore(10);
                 IsBusy = true;
                 PlayerManager.instance._generalCharacter.IsGeneral = true;

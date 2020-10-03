@@ -13,8 +13,10 @@ namespace UnityEngine.Rendering.HighDefinition
             public HDRISky sky;
             public Volume volume;
         }
+
         void IDataProvider.Cleanup(StageRuntimeInterface SRI)
-        { }
+        {
+        }
 
             /// <summary>
             /// This hook allows HDRP to init the scene when creating the view

@@ -80,8 +80,7 @@ public class Character : MonoBehaviour
             }
             else
             {
-                localTime += Time.deltaTime;
-                print(localTime);
+                localTime += Time.deltaTime;;
                 yield return null;
             }
         }
