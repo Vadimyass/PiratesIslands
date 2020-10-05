@@ -30,8 +30,8 @@ public class Character : MonoBehaviour
             {
                 island.enabled = true;
             }
-            _recentIsland = new Vector3(island.transform.position.x, 0.5065f, island.transform.position.z);
-            _nextIsland = new Vector3(island.NextIsland.transform.position.x, 0.5065f, island.NextIsland.transform.position.z);
+            _recentIsland = new Vector3(island.transform.position.x, 0.4f, island.transform.position.z);
+            _nextIsland = new Vector3(island.NextIsland.transform.position.x, 0.4f, island.NextIsland.transform.position.z);
             _recentIslandRef = island;
         }
         //else if(collision.collider.TryGetComponent(out WaterTrigger water))

@@ -10,7 +10,7 @@ public class Island : MonoBehaviour
 
     private GameObject _logPrefab;
 
-    public GameObject _instantiatedLog;
+    [SerializeField] public GameObject _instantiatedLog;
 
     public static Action<Island> LevelOver = delegate { };
     public static Action<GameObject> LogDown = delegate { };

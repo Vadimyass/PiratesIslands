@@ -27,7 +27,7 @@ public class TriggerScore : MonoBehaviour
                 GameManager.instance.AddScore(10);
                 IsBusy = true;
                 PlayerManager.instance._generalCharacter.IsGeneral = true;
-                IslandPos = new Vector3(island.transform.position.x, 0.5065f, island.transform.position.x);
+                IslandPos = new Vector3(island.transform.position.x, PlayerManager.instance._generalCharacter.transform.position.y, island.transform.position.x);
                 PlayerManager.instance.WalkToNextIsland(PlayerManager.instance._generalCharacter._nextIsland);
                 print("island");
             }
