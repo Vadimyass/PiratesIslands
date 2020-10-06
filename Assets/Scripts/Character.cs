@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     [NonSerialized] public Island _recentIslandRef;
 
     [NonSerialized] public Animator _animator;
-    [NonSerialized] public bool IsGeneral;
+    [SerializeField] public bool IsGeneral;
     public GameObject camera;
     [NonSerialized] private float localTime;
 
@@ -24,16 +24,6 @@ public class Character : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.TryGetComponent(out Island island))
-        {
-            if (!island.enabled)
-            {
-                island.enabled = true;
-            }
-            _recentIsland = new Vector3(island.transform.position.x, 0.24f, island.transform.position.z);
-            _nextIsland = new Vector3(island.NextIsland.transform.position.x, 0.24f, island.NextIsland.transform.position.z);
-            _recentIslandRef = island;
-        }
         //else if(collision.collider.TryGetComponent(out WaterTrigger water))
         //{
         //    Island._instantiatedLog.SetActive(false);
@@ -41,22 +31,12 @@ public class Character : MonoBehaviour
         //    Destroy(this.gameObject);
         //}
     }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.TryGetComponent(out Island island))
-        {
-            if (island.enabled)
-            {
-                island._instantiatedLog = null;
-                island.enabled = false;
-            }
-        }
-    }
+
     public IEnumerator MoveToPosition(Vector3 positionToMove)
     {
-        while(Math.Round(transform.position.x, 3) != Math.Round(positionToMove.x, 3) && Math.Round(transform.position.z, 3) != Math.Round(positionToMove.z, 3))
+        while(transform.position.x != positionToMove.x && transform.position.z != positionToMove.z)
         {
-            transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.012f);
+            transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.015f);
             transform.LookAt(new Vector3(positionToMove.x, transform.position.y, positionToMove.z));
             yield return null;
         }
@@ -71,11 +51,15 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToCenterRecentIsland(Vector3 pos, float delay)
     {
-        while (Math.Round(transform.position.x, 3) != Math.Round(_recentIsland.x, 3) && Math.Round(transform.position.z, 3) != Math.Round(_recentIsland.z, 3))
+        while (transform.position.x != _recentIsland.x && transform.position.z !=  _recentIsland.z)
         {
             if(localTime >= delay)
             {
-                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.012f);
+                if (IsGeneral)
+                {
+                    print("recent");
+                }
+                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.015f);
                 transform.LookAt(new Vector3(_recentIsland.x, transform.position.y, _recentIsland.z));
                 yield return null;
             }
@@ -92,11 +76,16 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToCenterNextIsland(Vector3 pos)
     {
-        transform.LookAt(new Vector3(_nextIsland.x, transform.position.y, _nextIsland.z));
-        if (Math.Round(transform.position.x, 3) != Math.Round(_nextIsland.x,3) && Math.Round(transform.position.z, 3) != Math.Round(_nextIsland.z, 3))
+        Vector3 IslandPos = _nextIsland;
+        while (transform.position.x != IslandPos.x && transform.position.z != IslandPos.z)
         {
+            if (IsGeneral)
+            {
+                print("next");
+            }
             _animator.SetBool("IsWalking", true);
-            transform.position = Vector3.MoveTowards(transform.position, _nextIsland, 0.012f);
+            transform.position = Vector3.MoveTowards(transform.position, IslandPos, 0.015f);
+            transform.LookAt(new Vector3(IslandPos.x, transform.position.y, IslandPos.z));
             yield return null;
         }
         StartCoroutine(MoveToPosition(pos));

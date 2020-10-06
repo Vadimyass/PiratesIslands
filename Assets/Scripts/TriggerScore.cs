@@ -8,7 +8,7 @@ public class TriggerScore : MonoBehaviour
 {
     private bool IsBusy = false;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (!IsBusy)
         {
@@ -23,13 +23,13 @@ public class TriggerScore : MonoBehaviour
 
             else if (other.TryGetComponent(out Island island))
             {
+                PlayerManager.instance.WalkToNextIsland(PlayerManager.instance._generalCharacter._nextIsland);
                 GameManager.instance.AddScore(10);
                 IsBusy = true;
-                PlayerManager.instance._generalCharacter.IsGeneral = true;
-                PlayerManager.instance.WalkToNextIsland(PlayerManager.instance._generalCharacter._nextIsland);
+                island.enabled = true;
                 print("island");
             }
-            else
+            else if(other.TryGetComponent(out WaterTrigger water))
             {
                 print("No");
                 IsBusy = true;

@@ -55,6 +55,29 @@ public class Island : MonoBehaviour
             LogDown(_instantiatedLog);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.TryGetComponent(out Character character))
+        {
+            character._recentIsland = new Vector3(transform.position.x, 0.24f,transform.position.z);
+            character._nextIsland = new Vector3(NextIsland.transform.position.x, 0.24f,NextIsland.transform.position.z);
+            character._recentIslandRef = this;
+        }
+
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.TryGetComponent(out Character character))
+        {
+            if (!character.IsGeneral)
+            {
+                _instantiatedLog = null;
+                enabled = false;
+            }
+        }
+    }
     private void AnimationOfIsland()
     {
         NextIsland.transform.position = Vector3.MoveTowards(NextIsland.transform.position, new Vector3(NextIsland.transform.position.x, 0, NextIsland.transform.position.z), 0.007f);

@@ -32,7 +32,7 @@ public class PlayerManager : MonoBehaviour
 
     public void AppointGeneralCharacter()
     {
-        if(_generalCharacter == null)
+        if (_generalCharacter == null)
         {
 
         }
@@ -41,10 +41,10 @@ public class PlayerManager : MonoBehaviour
             _generalCharacter.camera.SetActive(false);
         }
         _generalCharacter = _characters[index];
+        print(_generalCharacter.name);
         _secondaryCharacters.Remove(_generalCharacter);
         index++;
         _generalCharacter.camera.SetActive(true);
-        print(_generalCharacter.name);
     }
 
     public void WalkToNextIsland(Vector3 nextIsland)
@@ -62,13 +62,13 @@ public class PlayerManager : MonoBehaviour
     {
         List<Vector3> targetPositionList = new List<Vector3>
         {
-            positionToMove + new Vector3(-0.1f,0,-0.1f),
-            positionToMove + new Vector3(0.1f,0,-0.1f)
+            positionToMove + new Vector3(-0.1f,0,0.1f),
+            positionToMove + new Vector3(0.1f,0,0.1f)
         };
         int index = 0;
         foreach (var character in _secondaryCharacters)
         {
-            StartCoroutine(character.MoveToCenterRecentIsland(targetPositionList[index],(float)index));
+            StartCoroutine(character.MoveToCenterRecentIsland(targetPositionList[index],(float)index / 2));
             character._animator.SetBool("IsWalking", true);
             index++;
         }
