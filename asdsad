@@ -1,0 +1,71 @@
+[33mcommit 695bdbcb87d140006c67b131e5ec9626e74883cd[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Tue Oct 6 00:55:52 2020 +0300
+
+    Added new texture and remove old
+
+[33mcommit cde1540c023b9f6e169daa6a65810f5909100b1f[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Sat Oct 3 16:49:27 2020 +0300
+
+    Added start to progress bar and panel win
+
+[33mcommit 4bd42e7c7480d2cf9d94f5e6640cf4cb0c6e3a09[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Wed Sep 30 22:11:52 2020 +0300
+
+    fixed rts and reworked core mechanic
+
+[33mcommit 47e0b4c9276ae7e051f7f082b26cf93255be7ee3[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Mon Sep 28 01:32:58 2020 +0300
+
+    RTS system rewrite
+
+[33mcommit 9384f689e86ec7479976b4d0ec6393c1d79815f9[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Sun Sep 27 02:04:05 2020 +0300
+
+    RTS system added
+
+[33mcommit 8f63cafce0bbb8c38a03ea96a36f5da7a0356092[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Wed Sep 23 23:07:15 2020 +0300
+
+    Some fixes
+
+[33mcommit eada82f267e457d9673b32b3131dcc919da1e7c6[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Tue Sep 22 18:09:10 2020 +0300
+
+    Added optimized water shader and some reworked camera
+
+[33mcommit eb487ff3381f962c0ab7090d85b588e19d58b3ac[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Mon Sep 21 00:15:27 2020 +0300
+
+    Optimized shaders and added conditions to lose
+
+[33mcommit bd02567ed4716446a4dd29fffd887d5cb1e4cc05[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Sun Sep 20 20:00:47 2020 +0300
+
+    Adding some postprocessing and water shader
+
+[33mcommit 79eae23304be5b0c459b354d8cd1a988bc8a7459[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Sat Sep 19 14:49:38 2020 +0300
+
+    Added instantiation log in direction
+
+[33mcommit 706282cf9d237ab4db14605bb2bd9a80f354a531[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Fri Sep 18 22:27:55 2020 +0300
+
+    Basic movement
+
+[33mcommit 9a665d2ea5fe7d8d201ca37f8c235b8f5a074934[m
+Author: Vadimyass <Vadimyass1@gmail.com>
+Date:   Fri Sep 18 22:16:26 2020 +0300
+
+    dada

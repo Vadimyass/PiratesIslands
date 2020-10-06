@@ -30,8 +30,8 @@ public class Character : MonoBehaviour
             {
                 island.enabled = true;
             }
-            _recentIsland = new Vector3(island.transform.position.x, 0.4f, island.transform.position.z);
-            _nextIsland = new Vector3(island.NextIsland.transform.position.x, 0.4f, island.NextIsland.transform.position.z);
+            _recentIsland = new Vector3(island.transform.position.x, 0.24f, island.transform.position.z);
+            _nextIsland = new Vector3(island.NextIsland.transform.position.x, 0.24f, island.NextIsland.transform.position.z);
             _recentIslandRef = island;
         }
         //else if(collision.collider.TryGetComponent(out WaterTrigger water))
@@ -54,12 +54,13 @@ public class Character : MonoBehaviour
     }
     public IEnumerator MoveToPosition(Vector3 positionToMove)
     {
-        while(transform.position != positionToMove)
+        while(Math.Round(transform.position.x, 3) != Math.Round(positionToMove.x, 3) && Math.Round(transform.position.z, 3) != Math.Round(positionToMove.z, 3))
         {
             transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.012f);
+            transform.LookAt(new Vector3(positionToMove.x, transform.position.y, positionToMove.z));
             yield return null;
         }
-        transform.LookAt(new Vector3(_nextIsland.x,transform.position.y, _nextIsland.z));
+        transform.LookAt(new Vector3(_nextIsland.x, transform.position.y, _nextIsland.z));
         _animator.SetBool("IsWalking", false);
         if (IsGeneral == true)
         {
@@ -70,12 +71,12 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToCenterRecentIsland(Vector3 pos, float delay)
     {
-        while (transform.position != _recentIsland)
+        while (Math.Round(transform.position.x, 3) != Math.Round(_recentIsland.x, 3) && Math.Round(transform.position.z, 3) != Math.Round(_recentIsland.z, 3))
         {
             if(localTime >= delay)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.012f);
-                transform.LookAt(_recentIsland);
+                transform.LookAt(new Vector3(_recentIsland.x, transform.position.y, _recentIsland.z));
                 yield return null;
             }
             else
@@ -91,11 +92,11 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToCenterNextIsland(Vector3 pos)
     {
-        if (transform.position != _nextIsland)
+        transform.LookAt(new Vector3(_nextIsland.x, transform.position.y, _nextIsland.z));
+        if (Math.Round(transform.position.x, 3) != Math.Round(_nextIsland.x,3) && Math.Round(transform.position.z, 3) != Math.Round(_nextIsland.z, 3))
         {
             _animator.SetBool("IsWalking", true);
             transform.position = Vector3.MoveTowards(transform.position, _nextIsland, 0.012f);
-            transform.LookAt(_nextIsland);
             yield return null;
         }
         StartCoroutine(MoveToPosition(pos));

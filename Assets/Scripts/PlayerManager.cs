@@ -62,9 +62,8 @@ public class PlayerManager : MonoBehaviour
     {
         List<Vector3> targetPositionList = new List<Vector3>
         {
-            positionToMove + new Vector3(0.08f,0,-0.08f),
-            positionToMove + new Vector3(-0.1f,0,-0.08f),
-            positionToMove + new Vector3(-0.08f,0,-0.05f),
+            positionToMove + new Vector3(-0.1f,0,-0.1f),
+            positionToMove + new Vector3(0.1f,0,-0.1f)
         };
         int index = 0;
         foreach (var character in _secondaryCharacters)

@@ -29,7 +29,7 @@ public class Island : MonoBehaviour
         }
         else
         {
-            InvokeRepeating(nameof(AnimationOfIsland), 1, 0.01f);
+            //InvokeRepeating(nameof(AnimationOfIsland), 1, 0.01f);
         }
 
     }
@@ -51,7 +51,7 @@ public class Island : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _rigidbody.isKinematic = false;
-            _rigidbody.AddForce((NextIsland.transform.position - transform.position)*30);//Forcing to the next island
+            _rigidbody.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
             LogDown(_instantiatedLog);
         }
     }
