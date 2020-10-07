@@ -34,11 +34,18 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToPosition(Vector3 positionToMove)
     {
-        while(transform.position.x != positionToMove.x && transform.position.z != positionToMove.z)
+        int digitsAccuracy = 6;
+        print(positionToMove);
+        if (Math.Round(transform.position.z, digitsAccuracy) != Math.Round(positionToMove.z, digitsAccuracy) && Math.Round(transform.position.x, digitsAccuracy) != Math.Round(positionToMove.x, digitsAccuracy))
         {
-            transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.015f);
-            transform.LookAt(new Vector3(positionToMove.x, transform.position.y, positionToMove.z));
-            yield return null;
+            print(positionToMove);
+            while (Math.Round(transform.position.z, digitsAccuracy) != Math.Round(positionToMove.z, digitsAccuracy) && Math.Round(transform.position.x, digitsAccuracy) != Math.Round(positionToMove.x, digitsAccuracy))
+            {
+
+                transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.012f);
+                transform.LookAt(new Vector3(positionToMove.x, transform.position.y, positionToMove.z));
+                yield return null;
+            }
         }
         transform.LookAt(new Vector3(_nextIsland.x, transform.position.y, _nextIsland.z));
         _animator.SetBool("IsWalking", false);
@@ -51,43 +58,34 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToCenterRecentIsland(Vector3 pos, float delay)
     {
-        while (transform.position.x != _recentIsland.x && transform.position.z !=  _recentIsland.z)
+        while (Math.Round(transform.position.x,8) != Math.Round(_recentIsland.x,3) && Math.Round(transform.position.z,3) != Math.Round(_recentIsland.z,3))
         {
-            if(localTime >= delay)
+            if (localTime >= delay)
             {
-                if (IsGeneral)
-                {
-                    print("recent");
-                }
-                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.015f);
+                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.012f);
                 transform.LookAt(new Vector3(_recentIsland.x, transform.position.y, _recentIsland.z));
                 yield return null;
             }
             else
             {
-                localTime += Time.deltaTime;;
+                localTime += Time.deltaTime; ;
                 yield return null;
             }
         }
         localTime = 0;
-        StartCoroutine(MoveToCenterNextIsland(pos));
+        StartCoroutine(MoveToPosition(pos));
     }
 
-
+    /*
     public IEnumerator MoveToCenterNextIsland(Vector3 pos)
     {
-        Vector3 IslandPos = _nextIsland;
-        while (transform.position.x != IslandPos.x && transform.position.z != IslandPos.z)
+        while (Math.Round(transform.position.x, 0) != Math.Round(IslandPos.x, 0) && Math.Round(transform.position.z, 0) != Math.Round(IslandPos.z, 0))
         {
-            if (IsGeneral)
-            {
-                print("next");
-            }
             _animator.SetBool("IsWalking", true);
             transform.position = Vector3.MoveTowards(transform.position, IslandPos, 0.015f);
             transform.LookAt(new Vector3(IslandPos.x, transform.position.y, IslandPos.z));
             yield return null;
         }
         StartCoroutine(MoveToPosition(pos));
-    }
+    }*/
 }

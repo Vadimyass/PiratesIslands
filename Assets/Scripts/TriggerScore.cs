@@ -23,7 +23,7 @@ public class TriggerScore : MonoBehaviour
 
             else if (other.TryGetComponent(out Island island))
             {
-                PlayerManager.instance.WalkToNextIsland(PlayerManager.instance._generalCharacter._nextIsland);
+                PlayerManager.instance.WalkToNextIsland(new Vector3(island.transform.position.x,0.24f, island.transform.position.z));
                 GameManager.instance.AddScore(10);
                 IsBusy = true;
                 island.enabled = true;

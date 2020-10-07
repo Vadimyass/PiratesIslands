@@ -12,7 +12,27 @@ ModelImporter:
   - first:
       74: 3496040570958989425
     second: Armature|Win
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0433\u043B\u0430\u0437\u0430"
+    second: {fileID: 2100000, guid: e94fbe6c3d7b44d4f8ff9f01399e18e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043A\u043E\u0436\u0430\u0433\u0438\u0433\u0430\u043D\u0442"
+    second: {fileID: 2100000, guid: 6e1d5be54cde6524a908e0706cce961b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u043C\u0430\u0439\u043A\u0430"
+    second: {fileID: 2100000, guid: ad889c9af0744f342aff1d2489227e55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "\u0448\u0442\u0430\u043D\u0446\u044B"
+    second: {fileID: 2100000, guid: 21ae155f66925624db67a0396d13a3ab, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

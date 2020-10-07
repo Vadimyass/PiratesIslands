@@ -23,15 +23,11 @@ public class Island : MonoBehaviour
     }
     private void OnEnable()
     {
-        if(NextIsland == null)
+        if (NextIsland == null)
         {
             LevelOver(this);
         }
-        else
-        {
-            //InvokeRepeating(nameof(AnimationOfIsland), 1, 0.01f);
-        }
-
+        //InvokeRepeating(nameof(AnimationOfIsland), 1, 0.01f);
     }
     void FixedUpdate()
     {
@@ -53,6 +49,7 @@ public class Island : MonoBehaviour
             _rigidbody.isKinematic = false;
             _rigidbody.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
             LogDown(_instantiatedLog);
+            enabled = false;
         }
     }
 
@@ -63,21 +60,22 @@ public class Island : MonoBehaviour
             character._recentIsland = new Vector3(transform.position.x, 0.24f,transform.position.z);
             character._nextIsland = new Vector3(NextIsland.transform.position.x, 0.24f,NextIsland.transform.position.z);
             character._recentIslandRef = this;
+
         }
 
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.TryGetComponent(out Character character))
-        {
-            if (!character.IsGeneral)
-            {
-                _instantiatedLog = null;
-                enabled = false;
-            }
-        }
-    }
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.collider.TryGetComponent(out Character character))
+    //    {
+    //        if (character.IsGeneral)
+    //        {
+    //            _instantiatedLog = null;
+    //            enabled = false;
+    //        }
+    //    }
+    //}
     private void AnimationOfIsland()
     {
         NextIsland.transform.position = Vector3.MoveTowards(NextIsland.transform.position, new Vector3(NextIsland.transform.position.x, 0, NextIsland.transform.position.z), 0.007f);

@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour
     {
         _generalCharacter.IsGeneral = true;
         nextIslandPos = nextIsland;
-        StartCoroutine(_generalCharacter.MoveToCenterRecentIsland(nextIslandPos,0));
+        StartCoroutine(_generalCharacter.MoveToCenterRecentIsland(nextIslandPos ,0));
 
     }
     public void OtherCharacterWalking()

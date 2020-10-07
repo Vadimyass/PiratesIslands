@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
 
     private void GameEnding(Island obj)
     {
-        print("rofl");
         obj.enabled = false;
     }
 
