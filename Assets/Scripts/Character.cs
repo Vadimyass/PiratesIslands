@@ -35,16 +35,14 @@ public class Character : MonoBehaviour
     public IEnumerator MoveToPosition(Vector3 positionToMove)
     {
         int digitsAccuracy = 6;
-        print(positionToMove);
         if (Math.Round(transform.position.z, digitsAccuracy) != Math.Round(positionToMove.z, digitsAccuracy) && Math.Round(transform.position.x, digitsAccuracy) != Math.Round(positionToMove.x, digitsAccuracy))
         {
-            print(positionToMove);
             while (Math.Round(transform.position.z, digitsAccuracy) != Math.Round(positionToMove.z, digitsAccuracy) && Math.Round(transform.position.x, digitsAccuracy) != Math.Round(positionToMove.x, digitsAccuracy))
             {
-
+                _animator.SetBool("IsWalking", true);
                 transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.012f);
                 transform.LookAt(new Vector3(positionToMove.x, transform.position.y, positionToMove.z));
-                yield return null;
+                yield return new WaitForFixedUpdate();
             }
         }
         transform.LookAt(new Vector3(_nextIsland.x, transform.position.y, _nextIsland.z));
@@ -62,14 +60,15 @@ public class Character : MonoBehaviour
         {
             if (localTime >= delay)
             {
+                _animator.SetBool("IsWalking", true);
                 transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.012f);
                 transform.LookAt(new Vector3(_recentIsland.x, transform.position.y, _recentIsland.z));
-                yield return null;
+                yield return new WaitForFixedUpdate();
             }
             else
             {
                 localTime += Time.deltaTime; ;
-                yield return null;
+                yield return new WaitForFixedUpdate();
             }
         }
         localTime = 0;

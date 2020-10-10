@@ -133,6 +133,7 @@
     <Compile Include="Assets\Scripts\SliderScript.cs" />
     <Compile Include="Assets\Scripts\TriggerScore.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\UIStarsHandle.cs" />
     <Compile Include="Assets\Scripts\WaterTrigger.cs" />
     <Compile Include="Assets\Scripts\WinPanelScript.cs" />
     <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
