@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     [SerializeField] private GameObject WinPanel;
+    [SerializeField] private GameObject StarsPanel;
     [SerializeField] private GameObject LosePanel;
 
     public SliderScript sliderScript;
@@ -20,17 +21,17 @@ public class UIManager : MonoBehaviour
         Island.LevelOver += ShowWinnerPanel;
         sliderScript = GetComponentInChildren<SliderScript>();
         WinPanel = transform.GetChild(1).gameObject;
-        print(WinPanel.name);
     }
 
     private void ShowWinnerPanel(Island obj)
     {
         WinPanel.SetActive(true);
+        StarsPanel.SetActive(true);
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(0);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }

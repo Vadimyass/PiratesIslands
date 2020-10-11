@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SliderScript : MonoBehaviour
 {
-    [SerializeField] private Sprite _emptyStar;
     [SerializeField] public Sprite _fillStar;
     [SerializeField] public Image[] _stars;
 

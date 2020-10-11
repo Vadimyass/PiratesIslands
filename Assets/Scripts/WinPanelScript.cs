@@ -7,6 +7,7 @@ public class WinPanelScript : MonoBehaviour
 {
     private Vector3 centerCamera;
     [SerializeField] private Image[] Stars;
+    [SerializeField] private Material _fillStar;
     private void OnEnable()
     {
         int index = 0;
@@ -29,7 +30,11 @@ public class WinPanelScript : MonoBehaviour
         }
         star.gameObject.SetActive(false);
         Stars[index].gameObject.SetActive(true);
-        Stars[index].sprite = star.sprite;
+        if(star.sprite == UIManager.instance.sliderScript._fillStar)
+        {
+            Stars[index].material = _fillStar;
+        }
+
     }
 
 }
