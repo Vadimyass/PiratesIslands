@@ -68,7 +68,6 @@
      <Compile Include="Assets\MobileDepthWater\Scripts\AnimationStarter.cs" />
      <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineMixingCamera.cs" />
-     <Compile Include="Assets\Scripts\AdditionalScore.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Core\AxisState.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoothPath.cs" />
      <Compile Include="Assets\Scripts\TriggerScore.cs" />

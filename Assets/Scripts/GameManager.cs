@@ -12,9 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider ProgressBar;
 
     public static GameManager instance;
-
-    public bool IsGameStarted;
-
+    
     public int MaxScore;
 
     public int score;

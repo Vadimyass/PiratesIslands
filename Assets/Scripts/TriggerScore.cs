@@ -12,16 +12,8 @@ public class TriggerScore : MonoBehaviour
     {
         if (!IsBusy)
         {
-            if (other.TryGetComponent(out AdditionalScore additionalScore))
-            {
-                GameManager.instance.AddScore(15);
-                PlayerManager.instance._generalCharacter.IsGeneral = true;
-                PlayerManager.instance.WalkToNextIsland(PlayerManager.instance._generalCharacter._nextIsland);
-                IsBusy = true;
-                print("Trigger");
-            }
 
-            else if (other.TryGetComponent(out Island island))
+            if (other.TryGetComponent(out Island island))
             {
                 PlayerManager.instance.WalkToNextIsland(new Vector3(island.transform.position.x,0.24f, island.transform.position.z));
                 GameManager.instance.AddScore(10);

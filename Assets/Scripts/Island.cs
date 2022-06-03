@@ -8,7 +8,8 @@ public class Island : MonoBehaviour
     Rigidbody _rigidbody;
     [NonSerialized] public GameObject NextIsland;
 
-    private GameObject _logPrefab;
+    [SerializeField] private GameObject _logPrefab;
+    private Rigidbody _logRB;
 
     [SerializeField] public GameObject _instantiatedLog;
 
@@ -16,27 +17,60 @@ public class Island : MonoBehaviour
     public static Action<GameObject> LogDown = delegate { };
 
     private float _speed = 0.3f;
-
-    private void Start()
-    {
-        _logPrefab = Resources.Load<GameObject>("Prefabs/Log");
-    }
+    
     private void OnEnable()
-    {
+    {        
+        Lean.Touch.LeanTouch.OnFingerDown += CreateLog;
+        Lean.Touch.LeanTouch.OnFingerUpdate += IncreaseLog;
+        Lean.Touch.LeanTouch.OnFingerUp += StopCreateLog;
         if (NextIsland == null)
         {
             LevelOver(this);
         }
         //InvokeRepeating(nameof(AnimationOfIsland), 1, 0.01f);
     }
-    void FixedUpdate()
+
+    private void OnDisable()
+    {
+        Lean.Touch.LeanTouch.OnFingerDown -= CreateLog;
+        Lean.Touch.LeanTouch.OnFingerUpdate -= IncreaseLog;
+        Lean.Touch.LeanTouch.OnFingerUp -= StopCreateLog;
+    }
+
+    private void CreateLog(Lean.Touch.LeanFinger finger)
+    {
+        Debug.Log("Touched screen");
+        _instantiatedLog = Instantiate(_logPrefab,Vector3.zero, Quaternion.Euler(transform.rotation.eulerAngles),this.transform);
+        _instantiatedLog.transform.localPosition = _logPrefab.transform.position;
+        _logRB = _instantiatedLog.GetComponent<Rigidbody>();
+        _logRB.isKinematic = true;
+    }
+
+    private void IncreaseLog(Lean.Touch.LeanFinger finger)
+    {
+        
+        if (finger.Index != -42)
+        {
+            _instantiatedLog.transform.localScale += Vector3.Lerp(_instantiatedLog.transform.localScale,
+                Vector3.up * Time.deltaTime * _speed, 3);
+            _instantiatedLog.transform.localPosition += Vector3.up * Time.deltaTime * _speed;
+        }
+    }
+    private void StopCreateLog(Lean.Touch.LeanFinger finger)
+    {
+        Debug.Log("Stop Touching screen");
+        _logRB.isKinematic = false;
+        _logRB.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
+        LogDown(_instantiatedLog);
+        enabled = false;
+    }
+    /*void FixedUpdate()
     {
         if(Input.GetMouseButtonDown(0) && _instantiatedLog == null)
         {
             _instantiatedLog = Instantiate(_logPrefab,Vector3.zero, Quaternion.Euler(transform.rotation.eulerAngles),this.transform);
             _instantiatedLog.transform.localPosition = _logPrefab.transform.position;
-            _rigidbody = _instantiatedLog.GetComponent<Rigidbody>();
-            _rigidbody.isKinematic = true;
+            _logRB.isKinematic = true;
         }
 
         if (Input.GetMouseButton(0))
@@ -46,12 +80,12 @@ public class Island : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
-            _rigidbody.isKinematic = false;
-            _rigidbody.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
+            _logRB.isKinematic = false;
+            _logRB.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
             LogDown(_instantiatedLog);
             enabled = false;
         }
-    }
+    }*/
 
     private void OnCollisionEnter(Collision collision)
     {
