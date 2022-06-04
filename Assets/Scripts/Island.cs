@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Island : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Island : MonoBehaviour
     [NonSerialized] public GameObject NextIsland;
 
     [SerializeField] private GameObject _logPrefab;
-    private Rigidbody _logRB;
+    [SerializeField] private Rigidbody _logRB;
 
     [SerializeField] public GameObject _instantiatedLog;
 
@@ -17,7 +18,13 @@ public class Island : MonoBehaviour
     public static Action<GameObject> LogDown = delegate { };
 
     private float _speed = 0.3f;
-    
+
+    [Inject]
+    private void Construct(WoddenLog logPrefab, Rigidbody logRB)
+    {
+        _logPrefab = logPrefab.gameObject;
+        _logRB = logRB;
+    }
     private void OnEnable()
     {        
         Lean.Touch.LeanTouch.OnFingerDown += CreateLog;

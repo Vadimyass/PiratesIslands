@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Zenject;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class PlayerManager : MonoBehaviour
 
     public static PlayerManager instance;
     int index = 0;
+
+    [Inject]
+    private void Construct(List<Character> characters)
+    {
+        _characters = characters;
+    }
     private void Start()
     {
         instance = this;

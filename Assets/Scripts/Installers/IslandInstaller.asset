@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d078f2a6dce0b54fbedf74e9bdbc808, type: 3}
+  m_Name: IslandInstaller
+  m_EditorClassIdentifier: 
+  _logPrefab: {fileID: 6790739658665174803, guid: 9f80908908f60334a8c621ed2935b863,
+    type: 3}
+  _logRB: {fileID: 8776795218071951826, guid: 9f80908908f60334a8c621ed2935b863, type: 3}
