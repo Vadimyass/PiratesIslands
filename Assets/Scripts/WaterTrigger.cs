@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class WaterTrigger : MonoBehaviour
 {
-    private GameObject _log;
+    private WoddenPlank _log;
     private void Start()
     {
         Island.LogDown += Logging;
     }
 
-    private void Logging(GameObject obj)
+    private void Logging(WoddenPlank obj)
     {
         _log = obj;
     }

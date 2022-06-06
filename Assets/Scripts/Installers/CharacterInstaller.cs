@@ -6,12 +6,9 @@ public class CharacterInstaller : MonoInstaller
 {
     [SerializeField] private List<Character> _characters;
     [SerializeField] private List<Transform> _charactersSpawnPositions;
-    [SerializeField] private Camera _camera;
     public override void InstallBindings()
     {        
-        Container.Bind<Camera>()
-            .FromInstance(_camera)
-            .AsSingle();
+
         List<Character> characters = new List<Character>();
         var character1 =
             Container.InstantiatePrefabForComponent<Character>(

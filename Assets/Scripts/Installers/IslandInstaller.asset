@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d078f2a6dce0b54fbedf74e9bdbc808, type: 3}
   m_Name: IslandInstaller
   m_EditorClassIdentifier: 
-  _logPrefab: {fileID: 6790739658665174803, guid: 9f80908908f60334a8c621ed2935b863,
+  _plankConfig: {fileID: 11400000, guid: 4634e3c794852cb45a84a53079def1f9, type: 2}
+  _plankPool: {fileID: 1198179372138905374, guid: 48a1955c641375f4c9f399f83b6b45b4,
     type: 3}
-  _logRB: {fileID: 8776795218071951826, guid: 9f80908908f60334a8c621ed2935b863, type: 3}

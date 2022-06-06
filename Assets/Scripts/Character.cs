@@ -17,11 +17,6 @@ public class Character : MonoBehaviour
 
     [SerializeField] public Transform target;
 
-    [Inject]
-    private void Construct(Camera Camera)
-    {
-        camera = Camera.gameObject;
-    }
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -41,7 +36,6 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToPosition(Vector3 positionToMove)
     {
-        Debug.Log("GO to POsiTION");
         int digitsAccuracy = 6;
         if (Math.Round(transform.position.z, digitsAccuracy) != Math.Round(positionToMove.z, digitsAccuracy) && Math.Round(transform.position.x, digitsAccuracy) != Math.Round(positionToMove.x, digitsAccuracy))
         {
@@ -64,7 +58,6 @@ public class Character : MonoBehaviour
 
     public IEnumerator MoveToCenterRecentIsland(Vector3 pos, float delay)
     {
-        Debug.Log("GO to ISLAND CENTER");
         while (Math.Round(transform.position.x,8) != Math.Round(_recentIsland.x,3) && Math.Round(transform.position.z,3) != Math.Round(_recentIsland.z,3))
         {
             if (localTime >= delay)

@@ -9,21 +9,20 @@ public class Island : MonoBehaviour
     Rigidbody _rigidbody;
     [NonSerialized] public GameObject NextIsland;
 
-    [SerializeField] private GameObject _logPrefab;
-    [SerializeField] private Rigidbody _logRB;
+    private Rigidbody _logRB;
 
-    [SerializeField] public GameObject _instantiatedLog;
+    private WoddenPlank _instantiatedLog;
 
     public static Action<Island> LevelOver = delegate { };
-    public static Action<GameObject> LogDown = delegate { };
+    public static Action<WoddenPlank> LogDown = delegate { };
 
     private float _speed = 0.3f;
+    private PlankPool _plankPool;
 
     [Inject]
-    private void Construct(WoddenLog logPrefab, Rigidbody logRB)
+    private void Construct( PlankPool plankPool )
     {
-        _logPrefab = logPrefab.gameObject;
-        _logRB = logRB;
+        _plankPool = plankPool;
     }
     private void OnEnable()
     {        
@@ -46,16 +45,15 @@ public class Island : MonoBehaviour
 
     private void CreateLog(Lean.Touch.LeanFinger finger)
     {
-        Debug.Log("Touched screen");
-        _instantiatedLog = Instantiate(_logPrefab,Vector3.zero, Quaternion.Euler(transform.rotation.eulerAngles),this.transform);
-        _instantiatedLog.transform.localPosition = _logPrefab.transform.position;
-        _logRB = _instantiatedLog.GetComponent<Rigidbody>();
+        Debug.Log("Try Try to create Plank");
+        _instantiatedLog = _plankPool.GetNextPlank(PlankReferenceData.PlankType.Wood, transform);
+        _logRB = _instantiatedLog.Rigidbody;
         _logRB.isKinematic = true;
     }
+    
 
     private void IncreaseLog(Lean.Touch.LeanFinger finger)
     {
-        
         if (finger.Index != -42)
         {
             _instantiatedLog.transform.localScale += Vector3.Lerp(_instantiatedLog.transform.localScale,
@@ -65,34 +63,11 @@ public class Island : MonoBehaviour
     }
     private void StopCreateLog(Lean.Touch.LeanFinger finger)
     {
-        Debug.Log("Stop Touching screen");
         _logRB.isKinematic = false;
         _logRB.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
         LogDown(_instantiatedLog);
         enabled = false;
     }
-    /*void FixedUpdate()
-    {
-        if(Input.GetMouseButtonDown(0) && _instantiatedLog == null)
-        {
-            _instantiatedLog = Instantiate(_logPrefab,Vector3.zero, Quaternion.Euler(transform.rotation.eulerAngles),this.transform);
-            _instantiatedLog.transform.localPosition = _logPrefab.transform.position;
-            _logRB.isKinematic = true;
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            _instantiatedLog.transform.localScale += Vector3.Lerp(_instantiatedLog.transform.localScale, Vector3.up * Time.deltaTime * _speed, 3);
-            _instantiatedLog.transform.localPosition += Vector3.up * Time.deltaTime * _speed;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            _logRB.isKinematic = false;
-            _logRB.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
-            LogDown(_instantiatedLog);
-            enabled = false;
-        }
-    }*/
 
     private void OnCollisionEnter(Collision collision)
     {
