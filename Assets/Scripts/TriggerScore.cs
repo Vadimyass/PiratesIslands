@@ -2,12 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 
 public class TriggerScore : MonoBehaviour
 {
     private bool IsBusy = false;
+    [SerializeField] private Score _score;
 
+    [Inject]
+    public void Construct(Score score)
+    {
+        _score = score;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (!IsBusy)
@@ -16,7 +23,7 @@ public class TriggerScore : MonoBehaviour
             if (other.TryGetComponent(out Island island))
             {
                 PlayerManager.instance.WalkToNextIsland(new Vector3(island.transform.position.x,0.24f, island.transform.position.z));
-                GameManager.instance.AddScore(10);
+                _score.AddScore(10);
                 IsBusy = true;
                 island.enabled = true;
                 print("island");

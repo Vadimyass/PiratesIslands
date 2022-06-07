@@ -56,7 +56,7 @@
      <Compile Include="Assets\Cinemachine\Base\Runtime\Core\UnityVectorExtensions.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineExternalCamera.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFreeLook.cs" />
-     <Compile Include="Assets\Scripts\SliderScript.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineCollider.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineBlenderSettings.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ICinemachineComponent.cs" />
@@ -83,6 +83,7 @@
      <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineHardLockToTarget.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineTargetGroup.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\Water\WaterArea.cs" />
+     <Compile Include="Assets\Scripts\Installers\PlankConfig.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachinePOV.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Core\GaussianFilter.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineComposer.cs" />
@@ -132,7 +133,8 @@
      <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFollowZoom.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
      <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineCore.cs" />
-     <Compile Include="Assets\Scripts\Installers\PlankConfig.cs" />
+     <Compile Include="Assets\Scripts\Controllers\ScoreController.cs" />
+     <Compile Include="Assets\Scripts\Installers\UIinstaller.cs" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Height\DiffuseColorHeightWaterTwoSide.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterOpaque\DiffuseWaterOpaque.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Depth\DiffuseColorDepthWaterTwoSide.shader" />
