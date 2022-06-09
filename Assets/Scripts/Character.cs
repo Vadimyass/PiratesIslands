@@ -76,17 +76,4 @@ public class Character : MonoBehaviour
         localTime = 0;
         StartCoroutine(MoveToPosition(pos));
     }
-
-    /*
-    public IEnumerator MoveToCenterNextIsland(Vector3 pos)
-    {
-        while (Math.Round(transform.position.x, 0) != Math.Round(IslandPos.x, 0) && Math.Round(transform.position.z, 0) != Math.Round(IslandPos.z, 0))
-        {
-            _animator.SetBool("IsWalking", true);
-            transform.position = Vector3.MoveTowards(transform.position, IslandPos, 0.015f);
-            transform.LookAt(new Vector3(IslandPos.x, transform.position.y, IslandPos.z));
-            yield return null;
-        }
-        StartCoroutine(MoveToPosition(pos));
-    }*/
 }

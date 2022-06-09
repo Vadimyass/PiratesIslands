@@ -8,22 +8,17 @@ using Zenject;
 public class TriggerScore : MonoBehaviour
 {
     private bool IsBusy = false;
-    [SerializeField] private Score _score;
+    [SerializeField] private ScoreView scoreView;
 
-    [Inject]
-    public void Construct(Score score)
-    {
-        _score = score;
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!IsBusy)
         {
-
             if (other.TryGetComponent(out Island island))
             {
                 PlayerManager.instance.WalkToNextIsland(new Vector3(island.transform.position.x,0.24f, island.transform.position.z));
-                _score.AddScore(10);
+                scoreView.AddScore(10);
                 IsBusy = true;
                 island.enabled = true;
                 print("island");
@@ -37,12 +32,7 @@ public class TriggerScore : MonoBehaviour
                 PlayerManager.instance._generalCharacter.IsGeneral = false;
                 StartCoroutine(PlayerManager.instance._generalCharacter.MoveToCenterRecentIsland(PlayerManager.instance._generalCharacter.target.position,0));
                 PlayerManager.instance._generalCharacter.enabled = false;
-;
-
             }
         }
-
-
-
     }
 }

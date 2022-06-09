@@ -5,7 +5,7 @@ using Zenject;
 public class UIinstaller : ScriptableObjectInstaller<UIinstaller>
 {
     [SerializeField] private int _maxScore;
-    [SerializeField] private Score _score;
+    [SerializeField] private ScoreView _scoreView;
     public override void InstallBindings()
     {
         Container
@@ -14,11 +14,9 @@ public class UIinstaller : ScriptableObjectInstaller<UIinstaller>
             .AsSingle()
             .WithArguments(_maxScore)
             .NonLazy();
-        var score =
-            Container.InstantiatePrefabForComponent<Score>(_score);
         Container
-            .Bind<Score>()
-            .FromInstance(score)
+            .BindInterfacesAndSelfTo<ScoreView>()
+            .FromComponentInNewPrefab(_scoreView)
             .AsSingle();
     }
 }

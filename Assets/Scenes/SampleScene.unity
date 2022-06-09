@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 12499999}
   - component: {fileID: 12500001}
   - component: {fileID: 12500000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,12 +428,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Islands:
-  - {fileID: 520626586}
-  - {fileID: 919132147621525848}
-  - {fileID: 446303755}
-  - {fileID: 304872151}
-  - {fileID: 1458669739}
-  - {fileID: 1209540905}
+  - {fileID: 520626589}
+  - {fileID: 919132147621525849}
+  - {fileID: 446303757}
+  - {fileID: 304872153}
+  - {fileID: 1458669741}
+  - {fileID: 1209540907}
 --- !u!4 &222489304
 Transform:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 304872155}
   - component: {fileID: 304872154}
   - component: {fileID: 304872153}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: island (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &375953953
 GameObject:
@@ -641,7 +641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 375953954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpawnPlankPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 404533938}
   - component: {fileID: 404533940}
   - component: {fileID: 404533939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 446303759}
   - component: {fileID: 446303758}
   - component: {fileID: 446303757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: island (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 520626590}
   - component: {fileID: 520626589}
   - component: {fileID: 520626588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: island (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 559356595}
   - component: {fileID: 559356597}
   - component: {fileID: 559356596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1123,7 @@ GameObject:
   - component: {fileID: 647645524}
   - component: {fileID: 647645526}
   - component: {fileID: 647645525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 779349005}
   - component: {fileID: 779349007}
   - component: {fileID: 779349006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 868305908}
   - component: {fileID: 868305910}
   - component: {fileID: 868305909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1592,7 @@ GameObject:
   - component: {fileID: 997191091}
   - component: {fileID: 997191093}
   - component: {fileID: 997191092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1790,39 +1790,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f1929ad93c3794f97df0cc56641ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1168207816
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1168207817}
-  m_Layer: 0
-  m_Name: WaterShader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1168207817
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168207816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3931215, y: 0.834579, z: 1.1985238}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6771115882823374986}
-  - {fileID: 1479225905828283683}
-  - {fileID: 3435531500684758451}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209540905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1803,7 @@ GameObject:
   - component: {fileID: 1209540909}
   - component: {fileID: 1209540908}
   - component: {fileID: 1209540907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: island (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2011,7 +1978,7 @@ GameObject:
   - component: {fileID: 1391910631}
   - component: {fileID: 1391910633}
   - component: {fileID: 1391910632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2095,7 +2062,7 @@ GameObject:
   - component: {fileID: 1458669743}
   - component: {fileID: 1458669742}
   - component: {fileID: 1458669741}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: island (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2580,7 +2547,7 @@ GameObject:
   - component: {fileID: 2050528280}
   - component: {fileID: 2050528282}
   - component: {fileID: 2050528281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2739,7 +2706,7 @@ GameObject:
   - component: {fileID: 1008150513540427337}
   - component: {fileID: 4202544657948434924}
   - component: {fileID: 2141047452066354470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2775,7 +2742,7 @@ GameObject:
   - component: {fileID: 1711813855290644621}
   - component: {fileID: 919132147621525850}
   - component: {fileID: 919132147621525849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: island
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2887,12 +2854,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479225905828283680}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.946754, y: -1.934579, z: 0.019699812}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.33373508, y: 0.050990444, z: 0}
+  m_LocalScale: {x: 0.02, y: 0, z: 0.019999994}
   m_Children: []
-  m_Father: {fileID: 1168207817}
-  m_RootOrder: 1
+  m_Father: {fileID: 6771115882823374986}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1711813855290644621
 MeshRenderer:
@@ -3054,12 +3021,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3435531500684758449}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53414416, y: 5.5775104, z: -2.7833612}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.30548286, y: -0.005070801, z: 0}
+  m_LocalScale: {x: 0.02, y: 0, z: 0.019999994}
   m_Children: []
-  m_Father: {fileID: 1168207817}
-  m_RootOrder: 2
+  m_Father: {fileID: 6771115882823374986}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3469287837942164551
 MeshFilter:
@@ -3093,11 +3060,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6771115882823374990}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -14.74, y: -0.82, z: -2.529822}
-  m_LocalScale: {x: 50, y: 50, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1168207817}
-  m_RootOrder: 0
+  m_LocalPosition: {x: -16.133121, y: 0.014578998, z: -1.3312984}
+  m_LocalScale: {x: 50, y: 50.000015, z: 0}
+  m_Children:
+  - {fileID: 1479225905828283683}
+  - {fileID: 3435531500684758451}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &6771115882823374987
 MeshFilter:
@@ -3261,7 +3230,7 @@ GameObject:
   - component: {fileID: 8372520243282123621}
   - component: {fileID: 4872597209160750272}
   - component: {fileID: 7240106023510794250}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: palm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

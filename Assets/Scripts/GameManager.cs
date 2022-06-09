@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] private List<GameObject> Islands;
+    [SerializeField] private List<Island> Islands;
     
 
     public static GameManager instance;
@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < Islands.Count; i++)
         {
-            Islands[i].GetComponent<Island>().NextIsland = Islands[i + 1];
-            Islands[i + 1].GetComponent<Island>().enabled = false;
+            Islands[i].NextIsland = Islands[i + 1];
+            Islands[i + 1].enabled = false;
         }
 
         Island.LevelOver += GameEnding;

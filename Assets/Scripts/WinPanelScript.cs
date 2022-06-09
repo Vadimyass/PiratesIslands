@@ -12,7 +12,7 @@ public class WinPanelScript : MonoBehaviour
     {
         int index = 0;
         centerCamera = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
-        foreach (Image star in UIManager.instance.score.stars)
+        foreach (Image star in UIManager.instance.scoreView.stars)
         {
             StartCoroutine(AnimateStarsToCenter(star,index));
             index++;
@@ -30,7 +30,7 @@ public class WinPanelScript : MonoBehaviour
         }
         star.gameObject.SetActive(false);
         Stars[index].gameObject.SetActive(true);
-        if(star.sprite == UIManager.instance.score.fillStar)
+        if(star.sprite == UIManager.instance.scoreView.fillStar)
         {
             Stars[index].material = _fillStar;
         }

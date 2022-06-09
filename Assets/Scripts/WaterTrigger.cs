@@ -24,7 +24,7 @@ public class WaterTrigger : MonoBehaviour
             PlayerManager.instance.AppointGeneralCharacter();
             character._recentIslandRef.enabled = true;
             Destroy(character.gameObject);
-            Destroy(_log);
+            Destroy(_log.gameObject);
         }
     }
 }

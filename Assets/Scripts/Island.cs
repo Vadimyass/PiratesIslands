@@ -7,7 +7,7 @@ using Zenject;
 public class Island : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    [NonSerialized] public GameObject NextIsland;
+    [NonSerialized] public Island NextIsland;
 
     private Rigidbody _logRB;
 
@@ -64,9 +64,11 @@ public class Island : MonoBehaviour
     private void StopCreateLog(Lean.Touch.LeanFinger finger)
     {
         _logRB.isKinematic = false;
-        _logRB.AddForce((NextIsland.transform.position - transform.position)*20);//Forcing to the next island
+        var direction = Vector3.Normalize(NextIsland.transform.position - transform.position);
+        _logRB.AddForce(direction*20);//Forcing to the next island
         LogDown(_instantiatedLog);
         enabled = false;
+        _instantiatedLog.CheckOnFalling(direction);
     }
 
     private void OnCollisionEnter(Collision collision)

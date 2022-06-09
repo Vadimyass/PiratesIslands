@@ -12,14 +12,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject StarsPanel;
     [SerializeField] private GameObject LosePanel;
 
-    public Score score;
+    public ScoreView scoreView;
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
         instance = this;
         Island.LevelOver += ShowWinnerPanel;
-        score = GetComponentInChildren<Score>();
+        scoreView = GetComponentInChildren<ScoreView>();
         WinPanel = transform.GetChild(1).gameObject;
     }
 
