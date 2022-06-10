@@ -5,6 +5,7 @@ using System.Linq;
 using ModestTree;
 using ModestTree.Util;
 using Zenject.Internal;
+using Object = UnityEngine.Object;
 #if !NOT_UNITY3D
 using UnityEngine;
 #endif
@@ -2005,7 +2006,7 @@ namespace Zenject
         }
 
         // Create a new game object from a prefab and fill in dependencies for all children
-        public GameObject InstantiatePrefab(UnityEngine.Object prefab)
+        public GameObject InstantiatePrefab(Object prefab)
         {
             return InstantiatePrefab(
                 prefab, GameObjectCreationParameters.Default);

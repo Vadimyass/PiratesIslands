@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,23 +13,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject StarsPanel;
     [SerializeField] private GameObject LosePanel;
 
-    public ScoreView scoreView;
+    [NonSerialized] public ScoreView scoreView;
 
-    private void Awake()
+    [Inject]
+    private void Construct(ScoreView ScoreView)
     {
         DontDestroyOnLoad(this);
         instance = this;
         Island.LevelOver += ShowWinnerPanel;
-        scoreView = GetComponentInChildren<ScoreView>();
+        scoreView = ScoreView;
         WinPanel = transform.GetChild(1).gameObject;
     }
-
     private void ShowWinnerPanel(Island obj)
     {
         WinPanel.SetActive(true);
         StarsPanel.SetActive(true);
     }
-
     public void RestartLevel()
     {
         SceneManager.LoadScene(0);

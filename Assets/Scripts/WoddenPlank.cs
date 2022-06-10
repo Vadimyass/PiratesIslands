@@ -11,7 +11,6 @@ public class WoddenPlank : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     public Rigidbody Rigidbody => _rigidbody;
     private ScoreView _scoreView;
-    private Vector3 _checkPoint;
     [SerializeField] private Transform _startPlankPoint;
     [SerializeField] private Transform _endPlankPoint;
 

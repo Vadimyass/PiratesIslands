@@ -22,7 +22,6 @@ public class CharacterInstaller : MonoInstaller
             Container.InstantiatePrefabForComponent<Character>(
                 _characters[2], _charactersSpawnPositions[2].position, Quaternion.identity, null);
         characters.Add(character3);
-        
         Container.Bind<List<Character>>()
             .FromInstance(characters)
             .AsSingle();

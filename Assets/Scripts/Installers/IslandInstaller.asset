@@ -15,3 +15,6 @@ MonoBehaviour:
   _plankConfig: {fileID: 11400000, guid: 4634e3c794852cb45a84a53079def1f9, type: 2}
   _plankPool: {fileID: 1198179372138905374, guid: 48a1955c641375f4c9f399f83b6b45b4,
     type: 3}
+  _islandConfig: {fileID: 11400000, guid: abd65c8cb007d2f428050fd564c55627, type: 2}
+  _islandPool: {fileID: 8714285216267142816, guid: 2c806f17e30a502449b8a6c51e336357,
+    type: 3}
