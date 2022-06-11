@@ -19,6 +19,8 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, (_nextIsland-transform.position), 8, 0.0F);
+        transform.rotation = Quaternion.LookRotation(newDir);
         _animator = GetComponent<Animator>();
         IsGeneral = false;
         localTime = 0;

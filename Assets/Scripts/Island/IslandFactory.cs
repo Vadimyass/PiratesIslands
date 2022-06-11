@@ -17,7 +17,6 @@ public class IslandFactory
 
     public Island Create(IslandReferenceData.IslandType islandType,Vector3 position )
     {
-        Debug.Log("Create Island");
         var reference = _islandConfig.GetIslandConfig(islandType);
         return _container.InstantiatePrefab(reference, position, Quaternion.identity, null).GetComponent<Island>();
     }
