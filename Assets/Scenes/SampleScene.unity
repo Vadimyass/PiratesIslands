@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _islands: []
   _startIslandSpawnPoint: {fileID: 2797784660326624965}
-  level: 10
+  level: 1
 --- !u!1 &1539370000171777109
 GameObject:
   m_ObjectHideFlags: 0
