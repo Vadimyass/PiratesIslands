@@ -107,7 +107,7 @@ public class IslandGenerator : MonoBehaviour
     }
     private void SetupIslands()
     {
-        for (int i = 1; i < level+5; i++)
+        for (int i = 1; i < _islands.Count; i++)
         {
             Vector3 newDir = Vector3.RotateTowards(_islands[i-1].transform.position, (_islands[i].transform.position-_islands[i-1].transform.position), 360, 0.0F);
             _islands[i-1].transform.rotation = Quaternion.LookRotation(newDir);

@@ -12,15 +12,12 @@ public class Character : MonoBehaviour
 
     [NonSerialized] public Animator _animator;
     [SerializeField] public bool IsGeneral;
-    public GameObject camera;
     [NonSerialized] private float localTime;
 
     [SerializeField] public Transform target;
 
     private void Start()
     {
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, (_nextIsland-transform.position), 8, 0.0F);
-        transform.rotation = Quaternion.LookRotation(newDir);
         _animator = GetComponent<Animator>();
         IsGeneral = false;
         localTime = 0;

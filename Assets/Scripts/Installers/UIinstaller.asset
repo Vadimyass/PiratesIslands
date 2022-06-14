@@ -15,3 +15,5 @@ MonoBehaviour:
   _maxScore: 60
   _scoreView: {fileID: 8742163029816787324, guid: c1f5f9ef7237c9447a340f135893146c,
     type: 3}
+  _starsHandle: {fileID: 7451115550681699060, guid: 805f3bd9a71ae7d43bb318653dba4aed,
+    type: 3}

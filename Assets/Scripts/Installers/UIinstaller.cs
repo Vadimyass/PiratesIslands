@@ -6,8 +6,13 @@ public class UIinstaller : ScriptableObjectInstaller<UIinstaller>
 {
     [SerializeField] private int _maxScore;
     [SerializeField] private ScoreView _scoreView;
+    [SerializeField] private UIStarsHandle _starsHandle;
     public override void InstallBindings()
     {
+        Container
+            .Bind<UIStarsHandle>()
+            .FromComponentInNewPrefab(_starsHandle)
+            .AsSingle();
         Container
             .Bind<ScoreController>()
             .FromNew()

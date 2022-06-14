@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using Zenject;
 
@@ -6,9 +7,15 @@ public class CharacterInstaller : MonoInstaller
 {
     [SerializeField] private List<Character> _characters;
     [SerializeField] private List<Transform> _charactersSpawnPositions;
+    [SerializeField] private CinemachineVirtualCamera _camera;
     public override void InstallBindings()
-    {        
-
+    {
+        Container
+            .Bind<CameraController>()
+            .FromNew()
+            .AsSingle()
+            .WithArguments(_camera)
+            .NonLazy();
         List<Character> characters = new List<Character>();
         var character1 =
             Container.InstantiatePrefabForComponent<Character>(

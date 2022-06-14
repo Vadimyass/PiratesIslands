@@ -52,98 +52,45 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineDebugLogger.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\UnityVectorExtensions.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineExternalCamera.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFreeLook.cs" />
      <Compile Include="Assets\Scripts\ScoreView.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineCollider.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineBlenderSettings.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ICinemachineComponent.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineVirtualCamera.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachinePipeline.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ReflectionHelpers.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineHardLookAt.cs" />
      <Compile Include="Assets\Scripts\WaterTrigger.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\AnimationStarter.cs" />
-     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
      <Compile Include="Assets\Scripts\Island\IslandGenerator.cs" />
      <Compile Include="Assets\Scripts\WoddenPlank.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineMixingCamera.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\AxisState.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoothPath.cs" />
      <Compile Include="Assets\Scripts\TriggerScore.cs" />
      <Compile Include="Assets\Scripts\Island\IslandPool.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\FPSCounter.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineFramingTransposer.cs" />
-     <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\Predictor.cs" />
      <Compile Include="Assets\Scripts\Installers\IslandInstaller.cs" />
      <Compile Include="Assets\Scripts\WinPanelScript.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\CameraRotator.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineGroupComposer.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineHardLockToTarget.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineTargetGroup.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\Water\WaterArea.cs" />
      <Compile Include="Assets\Scripts\Plank\PlankConfig.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachinePOV.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\GaussianFilter.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineComposer.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBlendListCamera.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CameraState.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineBlend.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachinePath.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\ICinemachineCamera.cs" />
      <Compile Include="Assets\Scripts\Island.cs" />
      <Compile Include="Assets\Scripts\Installers\UIinstaller.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachinePathBase.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineDollyCart.cs" />
-     <Compile Include="Assets\Cinemachine\PostFX\CinemachinePostProcessing.cs" />
      <Compile Include="Assets\Scripts\Island\IslandFactory.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineOrbitalTransposer.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineComponentBase.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineBrain.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\LensSettings.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineConfiner.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineSameAsFollowObject.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\SimpleSampleCharacterControl.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\FPSUI.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineClearShot.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachinePropertyAttribute.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\Water\WaterMaterialSwitcher.cs" />
      <Compile Include="Assets\Scripts\Controllers\ScoreController.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineExtension.cs" />
      <Compile Include="Assets\Scripts\Installers\CharacterInstaller.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineSmoother.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineVirtualCameraBase.cs" />
      <Compile Include="Assets\Scripts\UIStarsHandle.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\CameraDepthSlider.cs" />
      <Compile Include="Assets\Scripts\Island\IslandConfig.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\NoiseSettings.cs" />
      <Compile Include="Assets\Scripts\Plank\PlankFactory.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineTransposer.cs" />
-     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
      <Compile Include="Assets\Scripts\Character.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineTrackedDolly.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineStateDrivenCamera.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\SplineHelpers.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
-     <Compile Include="Assets\Cinemachine\PostFX\CinemachinePostFX.cs" />
      <Compile Include="Assets\Scripts\Plank\PlankPool.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Components\CinemachineBasicMultiChannelPerlin.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\TouchRotator.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\Water\WaterPropertyBlockSetter.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Behaviours\CinemachineFollowZoom.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
-     <Compile Include="Assets\Cinemachine\Base\Runtime\Core\CinemachineCore.cs" />
+     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Height\DiffuseColorHeightWaterTwoSide.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterOpaque\DiffuseWaterOpaque.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Depth\DiffuseColorDepthWaterTwoSide.shader" />
      <None Include="Assets\Supercyan Character Pack Free Sample\Shaders\Legacy\CelShader.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Depth\DiffuseDepthWaterTwoSide.shader" />
-     <None Include="Assets\Cinemachine\ReleaseNotes.txt" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterOpaque\Height\DiffuseHeightWater.shader" />
      <None Include="Assets\Supercyan Character Pack Free Sample\Shaders\SupercyanShader.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Height\DiffuseHeightWaterTwoSide.shader" />
@@ -801,6 +748,12 @@
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Editor">
  <HintPath>F:/Unity/PirateIsland/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>F:/Unity/PirateIsland/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>F:/Unity/PirateIsland/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -10,24 +10,25 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     [SerializeField] private GameObject WinPanel;
-    [SerializeField] private GameObject StarsPanel;
+    [SerializeField] private UIStarsHandle StarsPanel;
     [SerializeField] private GameObject LosePanel;
 
     [NonSerialized] public ScoreView scoreView;
 
     [Inject]
-    private void Construct(ScoreView ScoreView)
+    private void Construct(ScoreView ScoreView, UIStarsHandle starsHandle)
     {
         DontDestroyOnLoad(this);
         instance = this;
         Island.LevelOver += ShowWinnerPanel;
         scoreView = ScoreView;
+        StarsPanel = starsHandle;
         WinPanel = transform.GetChild(1).gameObject;
     }
     private void ShowWinnerPanel(Island obj)
     {
         WinPanel.SetActive(true);
-        StarsPanel.SetActive(true);
+        StarsPanel.gameObject.SetActive(true);
     }
     public void RestartLevel()
     {
