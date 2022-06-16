@@ -51,26 +51,7 @@ public class PlayerManager : MonoBehaviour
     {
         _generalCharacter.IsGeneral = true;
         nextIslandPos = nextIsland;
-        StartCoroutine(_generalCharacter.MoveToCenterRecentIsland(nextIslandPos ,0));
+        _generalCharacter.MoveToNextIsland();
 
-    }
-    public void OtherCharacterWalking()
-    {
-        RTSWalk(nextIslandPos);
-    }
-    private void RTSWalk(Vector3 positionToMove)
-    {
-        List<Vector3> targetPositionList = new List<Vector3>
-        {
-            positionToMove + new Vector3(-0.1f,0,0.1f),
-            positionToMove + new Vector3(0.1f,0,0.1f)
-        };
-        int index = 0;
-        foreach (var character in _secondaryCharacters)
-        {
-            StartCoroutine(character.MoveToCenterRecentIsland(targetPositionList[index],(float)index / 2));
-            character._animator.SetBool("IsWalking", true);
-            index++;
-        }
     }
 }

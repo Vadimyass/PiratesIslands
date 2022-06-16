@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Water;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using Zenject;
 
@@ -13,25 +14,30 @@ public class WoddenPlank : MonoBehaviour
     private ScoreView _scoreView;
     [SerializeField] private Transform _startPlankPoint;
     [SerializeField] private Transform _endPlankPoint;
+    private NavMeshSurface _surface;
 
     [Inject]
-    public void Construct(ScoreView scoreView)
+    public void Construct(ScoreView scoreView, NavMeshSurface surface)
     {
         _scoreView = scoreView;
+        _surface = surface;
     }
-    public void CheckOnFalling(Vector3 direction)
+    public IEnumerator CheckOnFalling(Vector3 direction)
     {
         var distance = Vector3.Distance(_startPlankPoint.position, _endPlankPoint.position);
         var checkPoint = _startPlankPoint.position +(direction * distance);
+        yield return new WaitForSeconds(2);
         RaycastHit hit;
         if (Physics.Raycast(checkPoint, Vector3.down, out hit, Mathf.Infinity))
         {
+            _surface.transform.position = checkPoint;
+            _surface.BuildNavMesh();
             if (hit.collider.TryGetComponent(out WaterArea water))
             {
                 print("No");
                 PlayerManager.instance._generalCharacter._recentIslandRef.enabled = true;
                 PlayerManager.instance._generalCharacter.IsGeneral = false;
-                StartCoroutine(PlayerManager.instance._generalCharacter.MoveToCenterRecentIsland(PlayerManager.instance._generalCharacter.target.position,0));
+                PlayerManager.instance._generalCharacter.MoveToNextIsland();
                 PlayerManager.instance._generalCharacter.enabled = false;
             }
             else if (hit.collider.TryGetComponent(out Island island))

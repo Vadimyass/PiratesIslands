@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
 public class Island : MonoBehaviour
@@ -16,7 +17,7 @@ public class Island : MonoBehaviour
     public static Action<Island> LevelOver = delegate { };
     public static Action<WoddenPlank> LogDown = delegate { };
 
-    private float _speed = 0.3f;
+    private float _speed = 0.15f;
     private PlankPool _plankPool;
 
     [Inject]
@@ -68,7 +69,7 @@ public class Island : MonoBehaviour
         _logRB.AddForce(direction*20);//Forcing to the next island
         LogDown(_instantiatedLog);
         enabled = false;
-        _instantiatedLog.CheckOnFalling(direction);
+        StartCoroutine(_instantiatedLog.CheckOnFalling(direction));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -78,9 +79,7 @@ public class Island : MonoBehaviour
             character._recentIsland = new Vector3(transform.position.x, 0.24f,transform.position.z);
             character._nextIsland = new Vector3(NextIsland.transform.position.x, 0.24f,NextIsland.transform.position.z);
             character._recentIslandRef = this;
-
         }
-
     }
 
     //private void OnCollisionExit(Collision collision)

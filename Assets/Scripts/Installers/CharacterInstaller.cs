@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
 public class CharacterInstaller : MonoInstaller
@@ -8,8 +9,13 @@ public class CharacterInstaller : MonoInstaller
     [SerializeField] private List<Character> _characters;
     [SerializeField] private List<Transform> _charactersSpawnPositions;
     [SerializeField] private CinemachineVirtualCamera _camera;
+    [SerializeField] private NavMeshSurface _surface;
     public override void InstallBindings()
     {
+        Container
+            .Bind<NavMeshSurface>()
+            .FromInstance(_surface)
+            .AsSingle();
         Container
             .Bind<CameraController>()
             .FromNew()

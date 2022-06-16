@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
 public class Character : MonoBehaviour
@@ -12,9 +13,8 @@ public class Character : MonoBehaviour
 
     [NonSerialized] public Animator _animator;
     [SerializeField] public bool IsGeneral;
+    [SerializeField] private NavMeshAgent _navMeshAgent;
     [NonSerialized] private float localTime;
-
-    [SerializeField] public Transform target;
 
     private void Start()
     {
@@ -23,56 +23,11 @@ public class Character : MonoBehaviour
         localTime = 0;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void MoveToNextIsland()
     {
-        //else if(collision.collider.TryGetComponent(out WaterTrigger water))
-        //{
-        //    Island._instantiatedLog.SetActive(false);
-        //    PlayerManager.instance.AppointGeneralCharacter();
-        //    Destroy(this.gameObject);
-        //}
-    }
-
-    public IEnumerator MoveToPosition(Vector3 positionToMove)
-    {
-        int digitsAccuracy = 6;
-        if (Math.Round(transform.position.z, digitsAccuracy) != Math.Round(positionToMove.z, digitsAccuracy) && Math.Round(transform.position.x, digitsAccuracy) != Math.Round(positionToMove.x, digitsAccuracy))
-        {
-            while (Math.Round(transform.position.z, digitsAccuracy) != Math.Round(positionToMove.z, digitsAccuracy) && Math.Round(transform.position.x, digitsAccuracy) != Math.Round(positionToMove.x, digitsAccuracy))
-            {
-                _animator.SetBool("IsWalking", true);
-                transform.position = Vector3.MoveTowards(transform.position, positionToMove, 0.012f);
-                transform.LookAt(new Vector3(positionToMove.x, transform.position.y, positionToMove.z));
-                yield return new WaitForFixedUpdate();
-            }
-        }
-        transform.LookAt(new Vector3(_nextIsland.x, transform.position.y, _nextIsland.z));
-        _animator.SetBool("IsWalking", false);
-        if (IsGeneral == true)
-        {
-            PlayerManager.instance.OtherCharacterWalking();
-            yield break;
-        }
-    }
-
-    public IEnumerator MoveToCenterRecentIsland(Vector3 pos, float delay)
-    {
-        while (Math.Round(transform.position.x,8) != Math.Round(_recentIsland.x,3) && Math.Round(transform.position.z,3) != Math.Round(_recentIsland.z,3))
-        {
-            if (localTime >= delay)
-            {
-                _animator.SetBool("IsWalking", true);
-                transform.position = Vector3.MoveTowards(transform.position, _recentIsland, 0.012f);
-                transform.LookAt(new Vector3(_recentIsland.x, transform.position.y, _recentIsland.z));
-                yield return new WaitForFixedUpdate();
-            }
-            else
-            {
-                localTime += Time.deltaTime; ;
-                yield return new WaitForFixedUpdate();
-            }
-        }
-        localTime = 0;
-        StartCoroutine(MoveToPosition(pos));
+        _navMeshAgent.SetDestination(_nextIsland);
+        Debug.DrawLine(_nextIsland, Vector3.up, Color.magenta, Mathf.Infinity);
+        Debug.Log(_nextIsland);
+        Debug.Log(_navMeshAgent.destination);
     }
 }

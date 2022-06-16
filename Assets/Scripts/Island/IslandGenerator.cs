@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -13,14 +14,16 @@ public class IslandGenerator : MonoBehaviour
     private Transform _islandSpawnPoint;
     private IslandPool _islandPool;
     [SerializeField] private int level;
+    private NavMeshSurface _surface;
     private int[,] _islandMatrix = new int[10, 10];
     private int x;
     private int y;
 
     [Inject]
-    public void Construct(IslandPool islandPool)
+    public void Construct(IslandPool islandPool, NavMeshSurface surface)
     {
         _islandPool = islandPool;
+        _surface = surface;
     }
 
     private void Awake()
@@ -45,7 +48,7 @@ public class IslandGenerator : MonoBehaviour
 
     private void MoveIslandSpawnPoint()
     {
-        var distance = Random.Range(2.0f, 3.0f);
+        var distance = Random.Range(3.0f, 4.0f);
         var side = Random.Range(1, 5);
         switch (side)
         {
@@ -114,6 +117,6 @@ public class IslandGenerator : MonoBehaviour
             _islands[i-1].transform.Rotate(0, 90, 0);
             _islands[i - 1].NextIsland = _islands[i];
             _islands[i].enabled = false;
-        } 
+        }
     }
 }
