@@ -10,7 +10,6 @@ public class IslandFactory
 
     public IslandFactory(DiContainer container, IslandConfig islandConfig)
     {
-        Debug.Log(islandConfig);
         _container = container;
         _islandConfig = islandConfig;
     }

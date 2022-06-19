@@ -55,7 +55,7 @@
      <Compile Include="Assets\Scripts\ScoreView.cs" />
      <Compile Include="Assets\Scripts\WaterTrigger.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\AnimationStarter.cs" />
-     <Compile Include="Assets\Scripts\Island\IslandGenerator.cs" />
+     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
      <Compile Include="Assets\Scripts\WoddenPlank.cs" />
      <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
      <Compile Include="Assets\Scripts\Island\IslandPool.cs" />
@@ -66,7 +66,7 @@
      <Compile Include="Assets\MobileDepthWater\Scripts\Water\WaterArea.cs" />
      <Compile Include="Assets\Scripts\Plank\PlankConfig.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\Island.cs" />
+     <Compile Include="Assets\Scripts\Island\Island.cs" />
      <Compile Include="Assets\Scripts\Installers\UIinstaller.cs" />
      <Compile Include="Assets\Scripts\Island\IslandFactory.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
@@ -79,12 +79,15 @@
      <Compile Include="Assets\MobileDepthWater\Scripts\CameraDepthSlider.cs" />
      <Compile Include="Assets\Scripts\Island\IslandConfig.cs" />
      <Compile Include="Assets\Scripts\Plank\PlankFactory.cs" />
-     <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\Characters\Character.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\Plank\PlankPool.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\TouchRotator.cs" />
      <Compile Include="Assets\MobileDepthWater\Scripts\Water\WaterPropertyBlockSetter.cs" />
      <Compile Include="Assets\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
+     <Compile Include="Assets\Scripts\Characters\CharacterFactory.cs" />
+     <Compile Include="Assets\Scripts\Characters\CharacterPool.cs" />
+     <Compile Include="Assets\Scripts\Characters\CharacterConfig.cs" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Height\DiffuseColorHeightWaterTwoSide.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterOpaque\DiffuseWaterOpaque.shader" />
      <None Include="Assets\MobileDepthWater\Shaders\WaterTwoSide\Depth\DiffuseColorDepthWaterTwoSide.shader" />

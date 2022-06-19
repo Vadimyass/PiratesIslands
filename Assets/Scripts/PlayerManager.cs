@@ -17,14 +17,14 @@ public class PlayerManager : MonoBehaviour
     int index = 0;
 
     [Inject]
-    private void Construct(List<Character> characters, CameraController cameraController)
+    private void Construct(CameraController cameraController)
     {
-        _characters = characters;
         _cameraController = cameraController;
     }
-    private void Start()
+
+    public void SetCharacters(List<Character> characters)
     {
-        instance = this;
+        _characters = characters;
         AppointGeneralCharacter();
         foreach (var character in _characters)
         {
@@ -37,6 +37,10 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void AppointGeneralCharacter()
     {
@@ -47,11 +51,15 @@ public class PlayerManager : MonoBehaviour
         _cameraController.ChangeCameraFollower(_generalCharacter.transform);
     }
 
-    public void WalkToNextIsland(Vector3 nextIsland)
+    public void WalkToNextIsland(Island nextIsland)
     {
         _generalCharacter.IsGeneral = true;
-        nextIslandPos = nextIsland;
+        nextIslandPos = new Vector3(nextIsland.transform.position.x,0.24f, nextIsland.transform.position.z);
         _generalCharacter.MoveToNextIsland();
-
+        foreach (Character character in _characters)
+        {
+            character._recentIslandRef = nextIsland;
+            character._nextIsland = nextIslandPos;
+        }
     }
 }

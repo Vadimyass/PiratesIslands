@@ -15,12 +15,14 @@ public class WoddenPlank : MonoBehaviour
     [SerializeField] private Transform _startPlankPoint;
     [SerializeField] private Transform _endPlankPoint;
     private NavMeshSurface _surface;
+    private PlayerManager _playerManager;
 
     [Inject]
-    public void Construct(ScoreView scoreView, NavMeshSurface surface)
+    public void Construct(ScoreView scoreView, NavMeshSurface surface, PlayerManager playerManager)
     {
         _scoreView = scoreView;
         _surface = surface;
+        _playerManager = playerManager;
     }
     public IEnumerator CheckOnFalling(Vector3 direction)
     {
@@ -43,7 +45,8 @@ public class WoddenPlank : MonoBehaviour
             else if (hit.collider.TryGetComponent(out Island island))
             {
                 print("island");
-                PlayerManager.instance.WalkToNextIsland(new Vector3(island.transform.position.x,0.24f, island.transform.position.z));
+                PlayerManager.instance.WalkToNextIsland(island);
+                PlayerManager.instance.nextIslandPos = island.NextIsland.gameObject.transform.position;
                 _scoreView.AddScore(10);
                 island.enabled = true;
             }

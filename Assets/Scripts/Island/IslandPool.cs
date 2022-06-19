@@ -13,7 +13,6 @@ public class IslandPool : MonoBehaviour
     public void Construct(IslandFactory islandFactory)
     {
         _islandFactory = islandFactory;
-        Debug.Log(islandFactory);
     }
 
     public Island GetNextIsland(IslandReferenceData.IslandType islandType,Vector3 targetPostion)

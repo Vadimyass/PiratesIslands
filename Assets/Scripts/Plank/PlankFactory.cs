@@ -11,14 +11,12 @@ public class PlankFactory
 
     public PlankFactory(DiContainer container, PlankConfig plankConfig)
     {
-        Debug.Log(plankConfig);
         _container = container;
         _plankConfig = plankConfig;
     }
 
     public WoddenPlank Create(PlankReferenceData.PlankType plankType,Transform parent)
     {
-        Debug.Log("Create Plank");
         var reference = _plankConfig.GetPlankConfig(plankType);
         return _container.InstantiatePrefab(reference, parent).GetComponent<WoddenPlank>();
     }

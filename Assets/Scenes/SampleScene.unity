@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.005
     agentHeight: 0.5
-    agentSlope: 60
-    agentClimb: 0.1
+    agentSlope: 20
+    agentClimb: 0.3
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -273,7 +273,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 21.932, y: 0, z: 0}
 --- !u!850595691 &73535856
 LightingSettings:
@@ -419,7 +419,7 @@ Transform:
   m_Children:
   - {fileID: 1304813566}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &197221651
 GameObject:
@@ -464,16 +464,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7571bd1bc0868db4abfde27c6a66a727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characters:
-  - {fileID: 6160701127594096943, guid: ec54298c775e9ae47acc713b50c854d1, type: 3}
-  - {fileID: 4912356862541742195, guid: e1c990b736811f74ab315fa1596d5a74, type: 3}
-  - {fileID: 1477776929513933247, guid: 32b39f73f37368645b30c622d0936fb8, type: 3}
-  _charactersSpawnPositions:
-  - {fileID: 1582236945}
-  - {fileID: 342213858}
-  - {fileID: 1618933577}
   _camera: {fileID: 145789499}
   _surface: {fileID: 836763930}
+  _characterPool: {fileID: 1237774612896976393, guid: a1d78504107bc7548b6488be1192b34a,
+    type: 3}
+  _characterConfig: {fileID: 11400000, guid: a19ba48d70a22844bab6b9a3e7fbcc9c, type: 2}
+  _playerManager: {fileID: 2170538218441519532, guid: 2458a8224e6e0f940820c0a31b6bf55a,
+    type: 3}
 --- !u!1 &342213857
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +542,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416466917
 GameObject:
@@ -578,7 +575,7 @@ Transform:
   - {fileID: 342213858}
   - {fileID: 1618933577}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &553403957
 GameObject:
@@ -609,7 +606,7 @@ Transform:
   m_Children:
   - {fileID: 1768058128}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -702,7 +699,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -147.76, z: 0}
 --- !u!1 &836763929
 GameObject:
@@ -762,57 +759,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &869943497
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 869943499}
-  - component: {fileID: 869943498}
-  m_Layer: 0
-  m_Name: Player Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &869943498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869943497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5895866650622824f95816fdaf77eab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _characters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _generalCharacter: {fileID: 0}
-  nextIslandPos: {x: 0, y: 0, z: 0}
---- !u!4 &869943499
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 869943497}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3931215, y: 0.834579, z: 1.1985238}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1294169759
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,7 +825,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304813565
 GameObject:
@@ -1124,7 +1072,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 19, y: -65.73, z: 0}
 --- !u!1 &1723589106
 GameObject:
@@ -1181,7 +1129,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768058127
 GameObject:
@@ -1319,7 +1267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f377bc37efba74193f7dc13a2945e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _islands: []
+  _charsSpawnPoints:
+  - {fileID: 1582236945}
+  - {fileID: 342213858}
+  - {fileID: 1618933577}
+  _spawnPointsParent: {fileID: 416466918}
   _startIslandSpawnPoint: {fileID: 2797784660326624965}
   level: 1
 --- !u!1 &1539370000171777109
@@ -1333,7 +1285,7 @@ GameObject:
   - component: {fileID: 1539370000171777111}
   - component: {fileID: 1539370000171777108}
   m_Layer: 0
-  m_Name: IslandGenerator
+  m_Name: LevelGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1351,7 +1303,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2797784660326624965
 Transform:
@@ -1365,7 +1317,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2797784660326624970
 GameObject:
@@ -1455,7 +1407,7 @@ Transform:
   - {fileID: 1479225905828283683}
   - {fileID: 3435531500684758451}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &6771115882823374987
 MeshFilter:
